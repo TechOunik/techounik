@@ -1,4 +1,4 @@
-# 🛡️ Obioma Felicity Igwe (TechOunik)
+# 🛡️ Obioma Felicity Uzoh (TechOunik)
 
 ### **Cybersecurity Analyst | CAPT Certified**
 *Final Year Cybersecurity Student at Miva Open University*
@@ -27,9 +27,9 @@ My expertise is not theoretical. I actively deploy and master these tools in liv
 
 | **Domain** | **Proficiencies** |
 | :--- | :--- |
-| **Penetration Testing** | Burp Suite, Nmap, Metasploit, Hydra, Wireshark |
+| **Penetration Testing** | Burp Suite, Nmap, Metasploit, Hydra |
 | **API Security** | API Reconnaissance, Endpoint Analysis, OWASP API Top 10 |
-| **Operating Systems** | Kali Linux (Advanced), Windows Server Administration, Linux CLI |
+| **Operating Systems** | Kali Linux (Advanced), Ubuntu, Windows Server Administration, Linux CLI |
 | **Governance (GRC)** | ISO 27001 Auditing, Risk Assessment, Compliance Frameworks |
 
 ---
@@ -47,7 +47,7 @@ This repository is a testament to my hands-on experience.
 ## 📬 **Connect With Me**
 I am always open to discussing security strategies, auditing roles, and technical collaborations.
 
-* [**LinkedIn**](https://www.linkedin.com/in/felicity-uzoh-55a5392b2)
+* [**Obioma Felicity Uzoh LinkedIn**](https://www.linkedin.com/in/felicity-uzoh-55a5392b2)
 * **Email:** obiomauzoh16@gmail.com
 
 ---

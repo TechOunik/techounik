@@ -1,6 +1,6 @@
 # 🛡️ Obioma Felicity Igwe (TechOunik)
 
-### **Cybersecurity Analyst | CAPT Certified | ISO 27001 Lead Auditor**
+### **Cybersecurity Analyst | CAPT Certified**
 *Final Year Cybersecurity Student at Miva Open University*
 
 ---

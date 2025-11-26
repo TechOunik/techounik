@@ -5,14 +5,14 @@
 
 ---
 
-## 🚀 **About Me**
+## **About Me**
 I am a results-driven cybersecurity professional dedicated to securing digital infrastructures and ensuring compliance. This portfolio documents my journey, showcasing my verified skills, rigorous training, and commitment to the defense of information systems.
 
 My approach is built on the foundation of **lifelong learning** and proven technical capability. I don't just study security; I implement it, audit it, and test it against real-world scenarios.
 
 ---
 
-## 🏆 **Verified Credentials**
+## **Verified Credentials**
 I back my knowledge with recognized industry certifications:
 
 * **Hackviser CAPT** (Certified Automated Penetration Tester) - *Verified Holder*
@@ -22,7 +22,7 @@ I back my knowledge with recognized industry certifications:
 
 ---
 
-## 🛠️ **Technical Arsenal**
+## **Technical Arsenal**
 My expertise is not theoretical. I actively deploy and master these tools in live and simulated environments:
 
 | **Domain** | **Proficiencies** |
@@ -34,7 +34,7 @@ My expertise is not theoretical. I actively deploy and master these tools in liv
 
 ---
 
-## 📂 **My Portfolio (Featured Work)**
+## **My Portfolio (Featured Work)**
 This repository is a testament to my hands-on experience.
 
 
@@ -44,7 +44,7 @@ This repository is a testament to my hands-on experience.
 * **Skills:** Penetration Testing, Privilege Escalation, Web Security.
 ---
 
-## 📬 **Connect With Me**
+##  **Connect With Me**
 I am always open to discussing security strategies, auditing roles, and technical collaborations.
 
 * [**Obioma Felicity Uzoh LinkedIn**](https://www.linkedin.com/in/felicity-uzoh-55a5392b2)

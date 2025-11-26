@@ -1,6 +1,6 @@
 # 🛡️ Obioma Felicity Uzoh (TechOunik)
 
-### **Cybersecurity Analyst | CAPT Certified**
+### **Cybersecurity Analyst | CAPT Certified | **
 *Final Year Cybersecurity Student at Miva Open University*
 
 ---

@@ -20,6 +20,12 @@ I back my knowledge with recognized industry certifications:
 * **API Security Fundamentals** - *APIsec University*
 * **B.Sc. Cybersecurity** (In View) - *Miva Open University (Final Year)*
 
+### My GitHub Stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=TechOunik&show_icons=true&theme=dark&include_all_commits=true&count_private=true" alt="TechOunik's GitHub Stats" />
+</p>
+
 ---
 
 ## **Technical Arsenal**
@@ -49,6 +55,12 @@ I am always open to discussing security strategies, auditing roles, and technica
 
 * [**Obioma Felicity Uzoh LinkedIn**](https://www.linkedin.com/in/felicity-uzoh-55a5392b2)
 * **Email:** obiomauzoh16@gmail.com
+
+### Most Used Languages
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=TechOunik&layout=compact&theme=dark" alt="TechOunik's Top Languages" />
+</p>
 
 ---
 ### *“Security is not a product, but a process.”*

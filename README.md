@@ -16,7 +16,7 @@ My approach is built on the foundation of **lifelong learning** and proven techn
 I back my knowledge with recognized industry certifications:
 
 * **Hackviser CAPT** (Certified Associate Penetration Tester) - *Verified Holder*
-* [**Google Cybersecurity Professional Certificate**](coursera.org/verify/professional-cert/9f1ea5a70b7a94a2c22c137c86407252) - *Verified Holder*
+* [**Google Cybersecurity Professional Certificate**](https://coursera.org/verify/professional-cert/9f1ea5a70b7a94a2c22c137c86407252) - *Verified Holder*
 * **API Security Fundamentals** - *APIsec University*
 * **B.Sc. Cybersecurity** (In View) - *Miva Open University (Final Year)*
 

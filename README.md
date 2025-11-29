@@ -53,7 +53,7 @@ This repository is a testament to my hands-on experience.
 ##  **Connect With Me**
 I am always open to discussing security strategies, auditing roles, and technical collaborations.
 
-* [**Obioma Felicity Uzoh LinkedIn**](https://www.linkedin.com/in/felicity-uzoh-55a5392b2)
+* [**Obioma Felicity Uzoh LinkedIn**](https://www.linkedin.com/in/felicityuzoh)
 * **Email:** obiomauzoh16@gmail.com
 
 ### Most Used Languages

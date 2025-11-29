@@ -15,7 +15,7 @@ My approach is built on the foundation of **lifelong learning** and proven techn
 ## **Verified Credentials**
 I back my knowledge with recognized industry certifications:
 
-* [**Hackviser Certified Associate Penetration Tester**](https://track.pstmrk.it/3s/app.hackviser.com/PXe9/6XrBAQ/AQ/a16b77f7-0c4f-47ad-9dd1-3137fcaff7d2/2/w18bVvEu9m) - *Verified Holder* ✅️
+* [**Hackviser Certified Associate Penetration Tester**](https://hackviser.com/verify?id=HV-CAPT-0ZJLUW53) - *Verified Holder* ✅️
 * [**Google Cybersecurity Professional Certificate**](https://www.coursera.org/account/accomplishments/specialization/0Y72OYPD8AF7?utm_source%3Dandroid%26utm_medium%3Dcertificate%26utm_content%3Dcert_image%26utm_campaign%3Dsharing_cta%26utm_product%3Ds12n) - *Verified Holder* ✅️
 * **API Security Fundamentals** - *APIsec University*
 * **B.Sc. Cybersecurity** (In View) - *Miva Open University (Final Year)*

@@ -3,289 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Builder | OBI_SEC</title>
+    <title>Portfolio & Resume Factory | OBI_SEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --primary: #165b33; --bg: #f4f4f9; --card: #ffffff; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); padding: 40px 20px; color: #333; }
-        .container { max-width: 900px; margin: 0 auto; background: var(--card); padding: 50px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+        :root { --primary: #165b33; --accent: #d42426; --bg: #f8f9fa; --text: #333; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); padding: 40px 20px; color: var(--text); }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
         
-        h1 { text-align: center; color: var(--primary); margin-bottom: 10px; font-size: 2.5rem; }
-        p.subtitle { text-align: center; color: #666; margin-bottom: 50px; }
-        
-        /* Form Styling */
+        h1 { text-align: center; color: var(--primary); font-size: 2.2rem; margin-bottom: 10px; }
+        .subtitle { text-align: center; color: #666; margin-bottom: 40px; }
+
+        /* CATEGORY FILTER */
+        .category-filter { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .cat-btn { padding: 8px 15px; border: 1px solid #ddd; border-radius: 20px; cursor: pointer; background: white; font-size: 0.9rem; transition: 0.3s; }
+        .cat-btn:hover, .cat-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+        /* THEME ACCORDION */
+        .theme-accordion { border: 2px solid #eee; border-radius: 10px; overflow: hidden; margin-bottom: 30px; }
+        .accordion-header { background: #f1f1f1; padding: 15px 20px; cursor: pointer; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+        .accordion-header:hover { background: #e9e9e9; }
+        .accordion-body { padding: 20px; display: none; background: white; }
+        .accordion-body.open { display: block; }
+
+        /* THEME GRID */
+        .theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; }
+        .theme-card { border: 2px solid #eee; border-radius: 10px; padding: 15px; cursor: pointer; text-align: center; transition: 0.3s; position: relative; }
+        .theme-card:hover { transform: translateY(-3px); border-color: #ccc; }
+        .theme-card.selected { border-color: var(--primary); background: #e8f5e9; }
+        .badge { position: absolute; top: 10px; right: 10px; font-size: 0.7rem; padding: 3px 8px; border-radius: 10px; color: white; }
+        .badge-free { background: #28a745; }
+        .badge-paid { background: var(--accent); }
+
+        /* FORM */
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .full-width { grid-column: span 2; }
         
-        label { display: block; margin-top: 15px; font-weight: bold; font-size: 0.9rem; color: #444; }
-        input, textarea, select { width: 100%; padding: 15px; margin-top: 8px; border: 2px solid #eee; border-radius: 10px; font-size: 1rem; transition: 0.3s; box-sizing: border-box; }
-        input:focus, textarea:focus { outline: none; border-color: var(--primary); background: #f9fffb; }
-        
-        /* New Theme Grid Selector */
-        .theme-grid-selector { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-top: 10px; }
-        .theme-card { padding: 20px; border: 2px solid #eee; border-radius: 15px; cursor: pointer; text-align: center; transition: 0.3s; background: white; }
-        .theme-card:hover { transform: translateY(-5px); border-color: #ccc; }
-        .theme-card.active { border-color: var(--primary); background: #e8f5e9; color: var(--primary); box-shadow: 0 5px 15px rgba(22, 91, 51, 0.1); }
-        .theme-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
-        .theme-price { font-size: 0.8rem; font-weight: bold; margin-top: 5px; display: block; color: #666; }
+        label { display: block; margin-top: 15px; font-weight: bold; font-size: 0.9rem; }
+        input, textarea, select { width: 100%; padding: 12px; margin-top: 5px; border: 2px solid #eee; border-radius: 8px; box-sizing: border-box; }
+        input:focus { border-color: var(--primary); outline: none; }
 
-        .btn-generate { display: block; width: 100%; padding: 20px; background: var(--primary); color: white; border: none; border-radius: 10px; font-size: 1.2rem; font-weight: bold; margin-top: 40px; cursor: pointer; transition: 0.3s; }
-        .btn-generate:hover { background: #0f4224; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(22, 91, 51, 0.2); }
+        /* IMAGE UPLOAD */
+        .file-upload { border: 2px dashed #ccc; padding: 20px; text-align: center; border-radius: 10px; margin-top: 10px; cursor: pointer; }
+        .file-upload:hover { border-color: var(--primary); background: #f9fffb; }
+        #preview-img { max-width: 100px; max-height: 100px; border-radius: 50%; margin-top: 10px; display: none; border: 2px solid var(--primary); }
 
-        @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } .full-width { grid-column: span 1; } }
+        .btn-generate { width: 100%; padding: 18px; background: var(--primary); color: white; border: none; border-radius: 10px; font-size: 1.2rem; font-weight: bold; margin-top: 30px; cursor: pointer; transition: 0.3s; }
+        .btn-generate:hover { background: #0f4224; }
+
+        @media(max-width: 600px) { .form-grid { grid-template-columns: 1fr; } .full-width { grid-column: span 1; } }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>🚀 Portfolio Factory</h1>
-    <p class="subtitle">Select a style, enter your info, and get your website instantly.</p>
+    <h1>🏭 Portfolio & Resume Factory</h1>
+    <p class="subtitle">Select a professional template, upload your details, and launch.</p>
+
+    <div class="theme-accordion">
+        <div class="accordion-header" onclick="toggleAccordion()">
+            <span>🎨 Step 1: Select Your Theme (Click to Expand)</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="accordion-body" id="themeBody">
+            
+            <div class="category-filter">
+                <button class="cat-btn active" onclick="filterThemes('all')">All</button>
+                <button class="cat-btn" onclick="filterThemes('tech')">Technology</button>
+                <button class="cat-btn" onclick="filterThemes('medical')">Medical</button>
+                <button class="cat-btn" onclick="filterThemes('creative')">Creative</button>
+                <button class="cat-btn" onclick="filterThemes('resume')">Resumes</button>
+            </div>
+
+            <div class="theme-grid" id="themeGrid">
+                </div>
+            <input type="hidden" id="selectedThemeId" value="free_sidebar">
+        </div>
+    </div>
 
     <form id="portfolioForm">
-        
-        <div class="full-width">
-            <label>Choose Your Style</label>
-            <div class="theme-grid-selector">
-                <div class="theme-card active" onclick="setTheme('free_sidebar')">
-                    <span class="theme-icon">🛡️</span>
-                    <strong>Cyber Sidebar</strong>
-                    <span class="theme-price">FREE</span>
-                </div>
-                <div class="theme-card" onclick="setTheme('free_minimal')">
-                    <span class="theme-icon">📄</span>
-                    <strong>Modern Minimal</strong>
-                    <span class="theme-price">FREE</span>
-                </div>
-                <div class="theme-card" onclick="setTheme('free_creative')">
-                    <span class="theme-icon">🎨</span>
-                    <strong>Creative Dark</strong>
-                    <span class="theme-price">FREE</span>
-                </div>
-                <div class="theme-card" onclick="setTheme('paid_hacker')">
-                    <span class="theme-icon">🔥</span>
-                    <strong>Hacker Elite</strong>
-                    <span class="theme-price" style="color:#d9534f;">₦5,000</span>
-                </div>
-            </div>
-            <input type="hidden" id="selectedTheme" value="free_sidebar">
-        </div>
-
         <div class="form-grid">
+            
+            <div class="full-width">
+                <label>Profile Picture (PNG Only for Security)</label>
+                <div class="file-upload" onclick="document.getElementById('photoInput').click()">
+                    <i class="fas fa-cloud-upload-alt" style="font-size: 1.5rem; color:#888;"></i>
+                    <p style="margin:5px 0; font-size:0.9rem;">Click to upload (Max 2MB)</p>
+                    <input type="file" id="photoInput" accept="image/png" style="display:none" onchange="handleImageUpload()">
+                </div>
+                <center><img id="preview-img"></center>
+                <input type="hidden" id="base64Image">
+            </div>
+
             <div>
                 <label>Full Name</label>
-                <input type="text" id="fullName" placeholder="e.g. Obioma Uzoh" required>
+                <input type="text" id="fullName" placeholder="e.g. Obioma Uzoh">
             </div>
             <div>
-                <label>Job Title</label>
-                <input type="text" id="jobTitle" placeholder="e.g. SOC Analyst" required>
+                <label>Profession / Title</label>
+                <input type="text" id="jobTitle" placeholder="e.g. Cybersecurity Analyst">
             </div>
             <div class="full-width">
                 <label>Professional Bio</label>
-                <textarea id="bio" rows="3" placeholder="I am a professional focused on..." required></textarea>
-            </div>
-            
-            <div>
-                <label>Email Address</label>
-                <input type="email" id="email" placeholder="email@example.com">
+                <textarea id="bio" rows="3" placeholder="Brief summary of who you are..."></textarea>
             </div>
             <div>
-                <label>LinkedIn / GitHub URL</label>
-                <input type="text" id="socialLink" placeholder="https://linkedin.com/in/...">
-            </div>
-
-            <div class="full-width">
-                <label>Top 5 Skills (Comma Separated)</label>
-                <input type="text" id="skills" placeholder="Network Security, Python, Wireshark, Linux, SQL">
-            </div>
-
-            <div class="full-width" style="border-top: 2px dashed #eee; margin-top: 20px; padding-top: 10px;">
-                <label style="color:var(--primary);">🏆 Featured Project</label>
+                <label>Email</label>
+                <input type="email" id="email" placeholder="contact@me.com">
             </div>
             <div>
-                <label>Project Name</label>
-                <input type="text" id="projTitle" placeholder="e.g. Malware Analysis Lab">
-            </div>
-            <div>
-                <label>Project Type</label>
-                <select id="projType">
-                    <option>Blue Team (Defensive)</option>
-                    <option>Red Team (Offensive)</option>
-                    <option>Research Paper</option>
-                    <option>Creative Design</option>
-                </select>
+                <label>Link (LinkedIn/GitHub)</label>
+                <input type="text" id="social" placeholder="https://...">
             </div>
             <div class="full-width">
-                <label>What did you achieve?</label>
-                <textarea id="projDesc" rows="3" placeholder="Analyzed a trojan infection and identified the C2 server IP..."></textarea>
+                <label>Skills (Comma separated)</label>
+                <input type="text" id="skills" placeholder="HTML, Python, Nursing, Design...">
             </div>
         </div>
 
-        <button type="button" class="btn-generate" onclick="generateSite()">🏗️ Build My Website</button>
+        <button type="button" class="btn-generate" onclick="generate()">🚀 Build It Now</button>
     </form>
 </div>
 
 <script>
-    function setTheme(theme) {
-        document.getElementById('selectedTheme').value = theme;
-        document.querySelectorAll('.theme-card').forEach(b => b.classList.remove('active'));
-        event.currentTarget.classList.add('active');
+    /* ================= DATA: YOUR 20 THEMES GO HERE ================= */
+    const themes = [
+        { id: 'free_sidebar', name: 'Cyber Sidebar', cat: 'tech', type: 'free', icon: '🛡️' },
+        { id: 'free_minimal', name: 'Modern Minimal', cat: 'creative', type: 'free', icon: '📄' },
+        { id: 'free_nurse',   name: 'Care Giver',     cat: 'medical', type: 'free', icon: '⚕️' },
+        { id: 'free_resume',  name: 'Simple Resume',  cat: 'resume',  type: 'free', icon: '📝' },
+        { id: 'paid_hacker',  name: 'Hacker Elite',   cat: 'tech',    type: 'paid', icon: '🔥' },
+        { id: 'paid_corp',    name: 'CEO Executive',  cat: 'creative',type: 'paid', icon: '💼' },
+        { id: 'paid_doctor',  name: 'Dr. Surgeon',    cat: 'medical', type: 'paid', icon: '🏥' },
+        { id: 'paid_cv_pro',  name: 'CV Professional',cat: 'resume',  type: 'paid', icon: '⭐' }
+        // ... You can add more here later!
+    ];
+
+    /* ================= LOGIC: RENDER THEMES ================= */
+    const grid = document.getElementById('themeGrid');
+    
+    function renderThemes(filter) {
+        grid.innerHTML = '';
+        themes.forEach(t => {
+            if (filter === 'all' || t.cat === filter) {
+                const card = document.createElement('div');
+                card.className = `theme-card ${t.id === document.getElementById('selectedThemeId').value ? 'selected' : ''}`;
+                card.onclick = () => selectTheme(t.id, card);
+                card.innerHTML = `
+                    <span class="badge badge-${t.type}">${t.type === 'free' ? 'FREE' : '₦5k'}</span>
+                    <div style="font-size:2rem; margin-bottom:10px;">${t.icon}</div>
+                    <strong>${t.name}</strong>
+                `;
+                grid.appendChild(card);
+            }
+        });
     }
 
-    function generateSite() {
-        const theme = document.getElementById('selectedTheme').value;
-        const data = {
-            name: document.getElementById('fullName').value,
-            role: document.getElementById('jobTitle').value,
-            bio: document.getElementById('bio').value,
-            email: document.getElementById('email').value,
-            social: document.getElementById('socialLink').value,
-            skills: document.getElementById('skills').value.split(','),
-            projTitle: document.getElementById('projTitle').value,
-            projType: document.getElementById('projType').value,
-            projDesc: document.getElementById('projDesc').value
-        };
+    // Initial Render
+    renderThemes('all');
 
-        if(!data.name || !data.role) { alert("Please enter at least your Name and Role."); return; }
+    function filterThemes(cat) {
+        document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+        event.target.classList.add('active');
+        renderThemes(cat);
+    }
 
-        let css = "";
-        let htmlStructure = "";
+    function selectTheme(id, el) {
+        document.getElementById('selectedThemeId').value = id;
+        document.querySelectorAll('.theme-card').forEach(c => c.classList.remove('selected'));
+        el.classList.add('selected');
+    }
 
-        // === THEME LOGIC ===
+    function toggleAccordion() {
+        document.getElementById('themeBody').classList.toggle('open');
+    }
+
+    /* ================= LOGIC: IMAGE SECURITY CHECK ================= */
+    function handleImageUpload() {
+        const input = document.getElementById('photoInput');
+        const file = input.files[0];
         
-        if (theme === 'free_sidebar') {
-            // THEME 1: CYBER SIDEBAR (The one you liked)
-            css = `
-                :root { --primary: #2c3e50; --accent: #3498db; --bg: #f8f9fa; --text: #333; }
-                body { font-family: 'Segoe UI', system-ui, sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.6; }
-                .layout { display: flex; max-width: 1200px; margin: 40px auto; gap: 40px; padding: 20px; }
-                .sidebar { flex: 1; min-width: 300px; }
-                .profile-card { background: white; padding: 40px; border-radius: 16px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); position: sticky; top: 40px; }
-                .avatar { width: 120px; height: 120px; background: #eee; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #ccc; }
-                .name { font-size: 1.8rem; margin: 10px 0 5px; font-weight: 700; color: var(--primary); }
-                .role { color: var(--accent); font-weight: 600; margin-bottom: 20px; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
-                .main-content { flex: 2; }
-                section { background: white; padding: 30px; border-radius: 16px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
-                .skill-tag { background: #eef2f7; color: var(--primary); padding: 8px 15px; border-radius: 8px; font-size: 0.9rem; font-weight: 500; display:inline-block; margin:5px;}
-                .project-card { background: #fcfcfc; border: 1px solid #eee; border-radius: 12px; padding: 20px; margin-top: 20px; border-left: 4px solid var(--accent); }
-            `;
-            htmlStructure = `
-                <div class="layout">
-                    <aside class="sidebar">
-                        <div class="profile-card">
-                            <div class="avatar">👤</div>
-                            <h1 class="name">${data.name}</h1>
-                            <div class="role">${data.role}</div>
-                            <p>${data.bio}</p>
-                            <a href="mailto:${data.email}" style="display:inline-block; padding:10px 20px; background:var(--primary); color:white; text-decoration:none; border-radius:20px; margin-top:10px;">Contact Me</a>
-                        </div>
-                    </aside>
-                    <main class="main-content">
-                        <section>
-                            <h2 style="color:var(--primary); border-bottom:2px solid #eee; padding-bottom:10px;">Skills</h2>
-                            <div>${data.skills.map(s => `<span class="skill-tag">${s.trim()}</span>`).join('')}</div>
-                        </section>
-                        <section>
-                            <h2 style="color:var(--primary); border-bottom:2px solid #eee; padding-bottom:10px;">Featured Project</h2>
-                            <div class="project-card">
-                                <small style="color:#888; font-weight:bold; text-transform:uppercase;">${data.projType}</small>
-                                <h3 style="margin:5px 0 10px; color:var(--primary);">${data.projTitle}</h3>
-                                <p>${data.projDesc}</p>
-                            </div>
-                        </section>
-                    </main>
-                </div>`;
-        
-        } else if (theme === 'free_minimal') {
-            // THEME 2: MODERN MINIMAL (New!)
-            css = `
-                body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #ffffff; color: #222; margin: 0; padding: 0; }
-                header { text-align: center; padding: 100px 20px 60px; background: #fafafa; border-bottom: 1px solid #eee; }
-                h1 { font-size: 3rem; margin: 0; font-weight: 800; letter-spacing: -1px; }
-                .role { font-size: 1.2rem; color: #666; margin-top: 10px; font-weight: 300; }
-                .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
-                h2 { font-size: 1.5rem; margin-bottom: 20px; font-weight: 600; border-bottom: 2px solid #222; padding-bottom: 10px; display: inline-block; }
-                .skill-list { line-height: 2; color: #555; }
-                .btn { border: 2px solid #222; color: #222; padding: 10px 25px; text-decoration: none; font-weight: bold; transition: 0.3s; display: inline-block; margin-top: 20px; }
-                .btn:hover { background: #222; color: white; }
-                .project { margin-bottom: 40px; }
-            `;
-            htmlStructure = `
-                <header>
-                    <h1>${data.name}</h1>
-                    <div class="role">${data.role}</div>
-                    <p style="max-width:500px; margin: 20px auto; color:#555;">${data.bio}</p>
-                    <a href="mailto:${data.email}" class="btn">Get in Touch</a>
-                </header>
-                <div class="container">
-                    <h2>Expertise</h2>
-                    <div class="skill-list">
-                        ${data.skills.join(' • ')}
-                    </div>
-                    <br><br>
-                    <h2>Selected Work</h2>
-                    <div class="project">
-                        <h3 style="margin-bottom:5px;">${data.projTitle}</h3>
-                        <span style="background:#eee; padding:2px 8px; font-size:0.8rem;">${data.projType}</span>
-                        <p style="margin-top:10px; color:#444;">${data.projDesc}</p>
-                    </div>
-                </div>`;
+        if (file) {
+            // SECURITY: Check File Type
+            if (file.type !== 'image/png') {
+                alert("SECURITY ALERT: Only .png files are allowed to prevent script injection.");
+                input.value = ''; // Clear input
+                return;
+            }
+            // SECURITY: Check File Size (2MB limit)
+            if (file.size > 2 * 1024 * 1024) {
+                alert("File too large. Max 2MB.");
+                return;
+            }
 
-        } else if (theme === 'free_creative') {
-            // THEME 3: CREATIVE DARK (New!)
-            css = `
-                body { font-family: 'Verdana', sans-serif; background: #111; color: #fff; margin: 0; padding: 20px; }
-                .container { max-width: 900px; margin: 0 auto; }
-                header { background: linear-gradient(135deg, #ff00cc, #333399); padding: 60px 40px; border-radius: 20px; text-align: center; margin-bottom: 40px; }
-                h1 { margin: 0; font-size: 2.5rem; }
-                .role { font-size: 1.2rem; opacity: 0.9; margin-top: 10px; font-family: monospace; }
-                .card { background: #222; padding: 30px; border-radius: 15px; margin-bottom: 20px; border: 1px solid #333; }
-                h2 { color: #ff00cc; font-size: 1.5rem; }
-                .tag { background: #333; padding: 5px 15px; border-radius: 50px; font-size: 0.9rem; margin-right: 5px; display: inline-block; margin-bottom: 5px; border: 1px solid #444; }
-                a { color: #fff; text-decoration: underline; }
-            `;
-            htmlStructure = `
-                <div class="container">
-                    <header>
-                        <h1>${data.name}</h1>
-                        <div class="role">&lt; ${data.role} /&gt;</div>
-                        <p>${data.bio}</p>
-                    </header>
-                    <div class="card">
-                        <h2>My Stack</h2>
-                        <div>${data.skills.map(s => `<span class="tag">${s.trim()}</span>`).join('')}</div>
-                    </div>
-                    <div class="card" style="border-left: 5px solid #ff00cc;">
-                        <h2>Featured: ${data.projTitle}</h2>
-                        <p style="color:#ccc;">${data.projDesc}</p>
-                        <br>
-                        <small style="color:#666;">Category: ${data.projType}</small>
-                    </div>
-                    <div style="text-align:center; margin-top:40px;">
-                        <a href="mailto:${data.email}">Contact Me</a>
-                        ${data.social ? ` | <a href="${data.social}">Social</a>` : ''}
-                    </div>
-                </div>`;
+            // Convert to Base64 to embed in HTML
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('base64Image').value = e.target.result;
+                const preview = document.getElementById('preview-img');
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
         }
+    }
 
-        // === FINAL ASSEMBLY OR PAYMENT ===
-        if (theme.startsWith('free')) {
-            const finalHTML = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${data.name}</title><style>${css}</style></head><body>${htmlStructure}<footer style="text-align:center; padding:40px; font-size:0.8rem; opacity:0.5;">Generated by OBI_SEC Portfolio Factory</footer></body></html>`;
-            downloadFile('index.html', finalHTML);
-            alert("Your " + theme.replace('free_', '') + " portfolio is downloading!");
-        } else {
-            // PAID VERSION (WhatsApp)
-            const msg = `*PREMIUM ORDER*%0A%0AName: ${data.name}%0ARole: ${data.role}%0ATheme: ${theme.toUpperCase()}%0A%0A_I am ready to pay ₦5,000._`;
+    /* ================= LOGIC: GENERATOR ================= */
+    function generate() {
+        const id = document.getElementById('selectedThemeId').value;
+        const name = document.getElementById('fullName').value;
+        const role = document.getElementById('jobTitle').value;
+        const bio = document.getElementById('bio').value;
+        const img = document.getElementById('base64Image').value || 'https://via.placeholder.com/150';
+        const skills = document.getElementById('skills').value.split(',').map(s => `<span>${s.trim()}</span>`).join('');
+        
+        if (!name) { alert("Please enter your name!"); return; }
+
+        const selectedTheme = themes.find(t => t.id === id);
+
+        if (selectedTheme.type === 'paid') {
+            // PAID FLOW
+            const msg = `*ORDER REQUEST*%0A%0ATheme: ${selectedTheme.name}%0AName: ${name}%0A%0A_I want to pay ₦5,000._`;
             // REPLACE NUMBER HERE
-            window.open(`https://wa.me/2347037819640?text=${msg}`, '_blank');
-        }
-    }
+            window.open(`https://wa.me/234XXXXXXXXXX?text=${msg}`, '_blank');
+        } else {
+            // FREE FLOW: Generate Code based on Category
+            let html = "";
+            
+            // --- TEMPLATE: MEDICAL / CLEAN ---
+            if (selectedTheme.cat === 'medical' || selectedTheme.id === 'free_minimal') {
+                html = `<!DOCTYPE html><html><head><title>${name}</title><style>body{font-family:sans-serif;text-align:center;padding:50px;background:#fff;color:#333}img{width:150px;height:150px;border-radius:50%;object-fit:cover;border:5px solid #eef}h1{margin-bottom:0;color:#2c3e50}.role{color:#16a085;font-weight:bold;text-transform:uppercase;letter-spacing:1px}.skills span{background:#f1f1f1;padding:5px 10px;border-radius:20px;margin:5px;display:inline-block;font-size:0.8rem}</style></head><body><img src="${img}"><h1>${name}</h1><p class="role">${role}</p><p style="max-width:600px;margin:20px auto">${bio}</p><div class="skills">${skills}</div><br><a href="mailto:${document.getElementById('email').value}">Contact Me</a></body></html>`;
+            }
+            // --- TEMPLATE: RESUME / CV ---
+            else if (selectedTheme.cat === 'resume') {
+                html = `<!DOCTYPE html><html><head><title>${name} - Resume</title><style>body{font-family:'Times New Roman',serif;max-width:800px;margin:40px auto;padding:40px;border:1px solid #ddd;box-shadow:0 0 10px rgba(0,0,0,0.1)}header{border-bottom:2px solid #333;padding-bottom:20px;margin-bottom:20px;display:flex;justify-content:space-between;align-items:center}.name{font-size:2.5rem;font-weight:bold}.contact{text-align:right;font-size:0.9rem}h2{background:#eee;padding:5px 10px;margin-top:30px}</style></head><body><header><div><div class="name">${name}</div><div>${role}</div></div><img src="${img}" style="width:80px;height:80px;border-radius:5px;"></header><p>${bio}</p><h2>SKILLS</h2><div>${skills}</div><h2>EXPERIENCE</h2><p>Generated by OBI_SEC Resume Builder</p></body></html>`;
+            }
+            // --- TEMPLATE: TECH (Default) ---
+            else {
+                html = `<!DOCTYPE html><html><head><title>${name}</title><style>body{font-family:'Courier New',monospace;background:#111;color:#0f0;padding:40px}.container{border:1px solid #0f0;padding:20px;max-width:800px;margin:0 auto}img{width:120px;border-radius:50%;border:2px solid #0f0}a{color:#fff}</style></head><body><div class="container"><center><img src="${img}"></center><h1>> ${name}</h1><h3>> ${role}</h3><p>${bio}</p><hr style="border-color:#0f0"><h4>> SKILLS_LOADED:</h4><div>${skills}</div><br><button onclick="window.print()">Save as PDF</button></div></body></html>`;
+            }
 
-    function downloadFile(filename, content) {
-        const element = document.createElement('a');
-        element.setAttribute('href', 'data:text/html;charset=utf-8,' + encodeURIComponent(content));
-        element.setAttribute('download', filename);
-        document.body.appendChild(element);
-        element.click();
-        document.body.removeChild(element);
+            const element = document.createElement('a');
+            element.setAttribute('href', 'data:text/html;charset=utf-8,' + encodeURIComponent(html));
+            element.setAttribute('download', 'index.html');
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
     }
 </script>
 

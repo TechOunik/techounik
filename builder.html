@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Factory Pro | OBI_SEC</title>
+    <title>Portfolio Factory | Starter Pack</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -31,27 +31,124 @@
             padding: 40px;
             border-radius: 20px;
             box-shadow: var(--shadow);
+            position: relative;
         }
         
+        /* CURRENCY SWITCHER */
+        .currency-switch {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+        }
+        
+        select#currency {
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 2px solid var(--primary);
+            font-weight: bold;
+            cursor: pointer;
+            background: white;
+            color: var(--primary);
+        }
+
         /* HEADER */
-        .header { text-align: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 2px solid #eee; }
-        .header h1 { color: var(--primary); font-size: 2.5rem; margin-bottom: 10px; }
-        .header .subtitle { color: #666; font-size: 1.1rem; }
-        .header .badge { display: inline-block; background: var(--accent); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; margin-top: 10px; }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
         
-        /* THEME GRID */
-        .section-title { font-size: 1.2rem; color: var(--primary); margin: 30px 0 15px 0; font-weight: bold; }
-        .category-filter { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .header h1 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
         
-        .cat-btn { padding: 10px 20px; border: 2px solid #ddd; border-radius: 25px; background: white; cursor: pointer; transition: all 0.3s; font-weight: 500; }
+        .header .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .header .badge {
+            display: inline-block;
+            background: #28a745; /* Green for Starter */
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* THEME SELECTION */
+        .section-title {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin: 30px 0 15px 0;
+            font-weight: bold;
+        }
+        
+        .category-filter {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .cat-btn {
+            padding: 10px 20px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
         .cat-btn:hover { border-color: var(--primary); transform: translateY(-2px); }
         .cat-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
         
-        .theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; max-height: 550px; overflow-y: auto; padding: 15px; border: 2px solid #eee; border-radius: 15px; margin-bottom: 30px; background: #fafafa; }
+        .theme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            max-height: 500px;
+            overflow-y: auto;
+            padding: 15px;
+            border: 2px solid #eee;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            background: #fafafa;
+        }
         
-        .theme-card { position: relative; border: 3px solid #eee; border-radius: 15px; padding: 20px; cursor: pointer; text-align: center; transition: all 0.3s; background: white; }
+        .theme-card {
+            position: relative;
+            border: 3px solid #eee;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+            background: white;
+        }
+        
         .theme-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); border-color: #ccc; }
         .theme-card.selected { border-color: var(--primary); background: #e8f5e9; box-shadow: 0 8px 25px rgba(22, 91, 51, 0.3); }
+        
+        .theme-card .favorite {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+        
+        .theme-card .favorite.inactive { color: #ddd; }
+        .theme-card .favorite.active { color: gold; transform: scale(1.2); }
         
         .theme-icon { font-size: 2.5rem; margin-bottom: 10px; }
         .theme-name { font-weight: bold; font-size: 1rem; margin: 10px 0; color: #333; }
@@ -59,17 +156,20 @@
         .color-bubbles { display: flex; justify-content: center; gap: 6px; margin-top: 10px; }
         .bubble { width: 18px; height: 18px; border-radius: 50%; border: 2px solid rgba(0,0,0,0.1); }
         
-        /* FORM */
+        /* FORM STYLING */
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
         .form-group { display: flex; flex-direction: column; }
         .form-group.full-width { grid-column: span 2; }
         
         label { font-weight: 600; font-size: 0.9rem; color: #555; margin-bottom: 8px; }
-        input, textarea, select { padding: 12px; border: 2px solid #eee; border-radius: 10px; font-family: inherit; font-size: 0.95rem; transition: border 0.3s; }
+        input, textarea, select.input-field { padding: 12px; border: 2px solid #eee; border-radius: 10px; font-family: inherit; font-size: 0.95rem; transition: border 0.3s; }
         input:focus, textarea:focus { outline: none; border-color: var(--primary); }
+        textarea { resize: vertical; min-height: 100px; }
         
         .file-upload { border: 3px dashed #ccc; padding: 30px; text-align: center; border-radius: 15px; cursor: pointer; transition: all 0.3s; background: #fafafa; }
         .file-upload:hover { border-color: var(--primary); background: #f0fff4; }
+        .file-upload i { font-size: 2rem; color: #888; margin-bottom: 10px; }
+        
         #preview-img { max-width: 120px; max-height: 120px; border-radius: 50%; margin-top: 20px; display: none; border: 4px solid var(--primary); object-fit: cover; }
         
         .btn-generate { width: 100%; padding: 18px; background: linear-gradient(135deg, var(--primary) 0%, #0f4224 100%); color: white; border: none; border-radius: 12px; font-size: 1.2rem; font-weight: bold; margin-top: 30px; cursor: pointer; transition: all 0.3s; display: flex; justify-content: center; align-items: center; gap: 10px; box-shadow: 0 5px 15px rgba(22, 91, 51, 0.3); }
@@ -91,26 +191,34 @@
         .btn-close { background: #ddd; color: #333; }
         .btn-close:hover { background: #ccc; }
         
-        #unlockCode { padding: 12px; border: 2px solid var(--primary); border-radius: 8px; width: 160px; display: none; text-align: center; font-weight: bold; letter-spacing: 2px; }
+        #unlockCode { padding: 12px; border: 2px solid var(--primary); border-radius: 8px; width: 160px; display: none; text-align: center; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; }
         .preview-frame { width: 100%; height: 100%; border: none; flex-grow: 1; background: white; }
         
         @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-        @media (max-width: 768px) { .form-grid { grid-template-columns: 1fr; } .form-group.full-width { grid-column: span 1; } .container { padding: 20px; } .header h1 { font-size: 1.8rem; } .theme-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); max-height: 400px; } }
+        @media (max-width: 768px) { .form-grid { grid-template-columns: 1fr; } .form-group.full-width { grid-column: span 1; } .container { padding: 20px; } .header h1 { font-size: 1.8rem; } .theme-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); max-height: 400px; } .currency-switch { position: relative; top: 0; right: 0; margin-bottom: 20px; text-align: right; } }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="header">
-        <h1>🏭 Portfolio Factory Pro</h1>
-        <p class="subtitle">Professional Portfolios & Resumes in Minutes</p>
-        <span class="badge">20+ Premium Themes</span>
+    <div class="currency-switch">
+        <select id="currency" onchange="updatePrices()">
+            <option value="NGN">🇳🇬 NGN (₦)</option>
+            <option value="USD">🇺🇸 USD ($)</option>
+            <option value="GBP">🇬🇧 GBP (£)</option>
+        </select>
     </div>
 
-    <div class="section-title"><i class="fas fa-palette"></i> Step 1: Choose Your Design Theme</div>
+    <div class="header">
+        <h1>🏭 Portfolio Factory</h1>
+        <p class="subtitle">Launch Your Career. Instant Professional Websites.</p>
+        <span class="badge">Starter Pack Edition</span>
+    </div>
+
+    <div class="section-title"><i class="fas fa-palette"></i> Step 1: Choose Your Style</div>
     
     <div class="category-filter">
-        <button class="cat-btn active" onclick="filterThemes('all')"><i class="fas fa-th"></i> All Themes</button>
+        <button class="cat-btn active" onclick="filterThemes('all')"><i class="fas fa-th"></i> All</button>
         <button class="cat-btn" onclick="filterThemes('tech')"><i class="fas fa-laptop-code"></i> Tech/Cyber</button>
         <button class="cat-btn" onclick="filterThemes('creative')"><i class="fas fa-paint-brush"></i> Creative</button>
         <button class="cat-btn" onclick="filterThemes('medical')"><i class="fas fa-heartbeat"></i> Medical</button>
@@ -125,11 +233,11 @@
     <form id="portfolioForm">
         <div class="form-grid">
             <div class="form-group full-width">
-                <label><i class="fas fa-image"></i> Profile Picture (PNG Only - Max 2MB)</label>
+                <label><i class="fas fa-image"></i> Profile Picture (PNG/JPG - Max 2MB)</label>
                 <div class="file-upload" onclick="document.getElementById('photoInput').click()">
                     <i class="fas fa-cloud-upload-alt"></i>
                     <p>Click to Upload Your Photo</p>
-                    <small style="color:#999">Best results: Square PNG image</small>
+                    <small style="color:#999">Best results: Square image</small>
                 </div>
                 <input type="file" id="photoInput" accept="image/png, image/jpeg" style="display:none" onchange="handleImageUpload()">
                 <center><img id="preview-img" alt="Preview"></center>
@@ -168,7 +276,7 @@
         </div>
 
         <button type="button" class="btn-generate" onclick="generatePreview()">
-            <i class="fas fa-magic"></i> Generate Live Preview
+            <i class="fas fa-magic"></i> Generate & Preview Site
         </button>
     </form>
 </div>
@@ -180,7 +288,7 @@
             <div class="action-area">
                 <input type="text" id="unlockCode" placeholder="ENTER KEY">
                 <button id="btn-pay" class="btn-action btn-unlock" onclick="startPaymentFlow()">
-                    <i class="fas fa-lock"></i> Unlock Download (₦2,000)
+                    <i class="fas fa-lock"></i> Unlock (<span id="payPrice">₦2,000</span>)
                 </button>
                 <button id="btn-download" class="btn-action btn-download" onclick="downloadFile()" style="display:none">
                     <i class="fas fa-download"></i> Download HTML
@@ -195,52 +303,67 @@
 </div>
 
 <script>
-    /* ================= 1. THE 20 THEMES DATABASE ================= */
+    // ==================== THEME DATABASE (STARTER PACK) ====================
     const themes = [
         // TECH & CYBER
-        { id: 'neon_nexus', name: 'Neon Nexus', cat: 'tech', icon: '🌌', c: { bg:'#000000', txt:'#E0E0E0', p:'#D500F9', a:'#00E5FF', card:'#111' } },
-        { id: 'tech_kal', name: 'Tech Kaleidoscope', cat: 'tech', icon: '🔭', c: { bg:'#0a0a0a', txt:'#fff', p:'#008080', a:'#FF00FF', card:'#1f1f1f' } },
-        { id: 'spec_inno', name: 'Spectrum Innovation', cat: 'tech', icon: '💎', c: { bg:'#f0f8ff', txt:'#333', p:'#4169E1', a:'#EE82EE', card:'#fff' } },
-        { id: 'chroma_code', name: 'Chromatic Code', cat: 'tech', icon: '🩸', c: { bg:'#ffffff', txt:'#333', p:'#DC143C', a:'#36454F', card:'#f4f4f4' } },
-        { id: 'elec_hues', name: 'Electric Hues', cat: 'tech', icon: '⚡', c: { bg:'#000080', txt:'#fff', p:'#00BFFF', a:'#39FF14', card:'#000050' } },
-        { id: 'vivid_circ', name: 'Vivid Circuits', cat: 'tech', icon: '🔋', c: { bg:'#2F4F4F', txt:'#fff', p:'#50C878', a:'#FFD700', card:'#3a5f5f' } },
-        { id: 'color_wave', name: 'Colourwave Tech', cat: 'tech', icon: '🌊', c: { bg:'#00008B', txt:'#fff', p:'#40E0D0', a:'#00FFFF', card:'#0000cd' } },
-        { id: 'rad_net', name: 'Radiant Networks', cat: 'tech', icon: '✨', c: { bg:'#C0C0C0', txt:'#000', p:'#0F52BA', a:'#FFBF00', card:'#e0e0e0' } },
-        { id: 'cyber_spec', name: 'Cyber Spectrum', cat: 'tech', icon: '👾', c: { bg:'#0b0b0b', txt:'#fff', p:'#7F00FF', a:'#BFFF00', card:'#1c1c1c' } },
-        { id: 'glitch_glow', name: 'Glitch & Glow', cat: 'tech', icon: '⚠️', c: { bg:'#333', txt:'#fff', p:'#FF3131', a:'#00FFFF', card:'#444' } },
-        { id: 'bright_byte', name: 'Bright Bytes', cat: 'tech', icon: '🍏', c: { bg:'#000080', txt:'#fff', p:'#32CD32', a:'#FFFFFF', card:'#0000a0' } },
+        { id: 'neon_nexus', name: 'Neon Nexus', cat: 'tech', icon: '🌌', fav: false, c: { bg:'#000000', txt:'#E0E0E0', p:'#D500F9', a:'#00E5FF', card:'#111' } },
+        { id: 'tech_kal', name: 'Tech Kaleidoscope', cat: 'tech', icon: '🔭', fav: false, c: { bg:'#0a0a0a', txt:'#fff', p:'#008080', a:'#FF00FF', card:'#1f1f1f' } },
+        { id: 'spec_inno', name: 'Spectrum Innovation', cat: 'tech', icon: '💎', fav: false, c: { bg:'#f0f8ff', txt:'#333', p:'#4169E1', a:'#EE82EE', card:'#fff' } },
+        { id: 'chroma_code', name: 'Chromatic Code', cat: 'tech', icon: '🩸', fav: false, c: { bg:'#ffffff', txt:'#333', p:'#DC143C', a:'#36454F', card:'#f4f4f4' } },
+        { id: 'elec_hues', name: 'Electric Hues', cat: 'tech', icon: '⚡', fav: false, c: { bg:'#000080', txt:'#fff', p:'#00BFFF', a:'#39FF14', card:'#000050' } },
+        { id: 'vivid_circ', name: 'Vivid Circuits', cat: 'tech', icon: '🔋', fav: false, c: { bg:'#2F4F4F', txt:'#fff', p:'#50C878', a:'#FFD700', card:'#3a5f5f' } },
+        { id: 'color_wave', name: 'Colourwave Tech', cat: 'tech', icon: '🌊', fav: false, c: { bg:'#00008B', txt:'#fff', p:'#40E0D0', a:'#00FFFF', card:'#0000cd' } },
+        { id: 'rad_net', name: 'Radiant Networks', cat: 'tech', icon: '✨', fav: false, c: { bg:'#C0C0C0', txt:'#000', p:'#0F52BA', a:'#FFBF00', card:'#e0e0e0' } },
+        { id: 'cyber_spec', name: 'Cyber Spectrum', cat: 'tech', icon: '👾', fav: false, c: { bg:'#0b0b0b', txt:'#fff', p:'#7F00FF', a:'#BFFF00', card:'#1c1c1c' } },
+        { id: 'glitch_glow', name: 'Glitch & Glow', cat: 'tech', icon: '⚠️', fav: false, c: { bg:'#333', txt:'#fff', p:'#FF3131', a:'#00FFFF', card:'#444' } },
+        { id: 'bright_byte', name: 'Bright Bytes', cat: 'tech', icon: '🍏', fav: false, c: { bg:'#000080', txt:'#fff', p:'#32CD32', a:'#FFFFFF', card:'#0000a0' } },
 
         // CREATIVE
-        { id: 'pixel_parade', name: 'Pixel Parade', cat: 'creative', icon: '🎨', c: { bg:'#FFFDE7', txt:'#333', p:'#FF7F50', a:'#87CEEB', card:'#fff' } },
-        { id: 'digi_rain', name: 'Digital Rainbow', cat: 'creative', icon: '🌈', c: { bg:'#fff', txt:'#333', p:'#FF0000', a:'#0000FF', card:'#f9f9f9' } },
-        { id: 'rgb_rev', name: 'RGB Revolution', cat: 'creative', icon: '🔴', c: { bg:'#111', txt:'#fff', p:'#FF0000', a:'#00FF00', card:'#222' } },
-        { id: 'neon_future', name: 'Neon Future', cat: 'creative', icon: '🚀', c: { bg:'#000', txt:'#fff', p:'#FF69B4', a:'#00FFFF', card:'#1a1a1a' } },
-        { id: 'full_color', name: 'Tech In Color', cat: 'creative', icon: '🎭', c: { bg:'#fff', txt:'#333', p:'#FFA500', a:'#800080', card:'#f0f0f0' } },
-        { id: 'pix_pulse', name: 'Pixel Pulse', cat: 'creative', icon: '💓', c: { bg:'#000', txt:'#fff', p:'#FF00FF', a:'#BF00FF', card:'#222' } },
+        { id: 'pixel_parade', name: 'Pixel Parade', cat: 'creative', icon: '🎨', fav: false, c: { bg:'#FFFDE7', txt:'#333', p:'#FF7F50', a:'#87CEEB', card:'#fff' } },
+        { id: 'digi_rain', name: 'Digital Rainbow', cat: 'creative', icon: '🌈', fav: false, c: { bg:'#fff', txt:'#333', p:'#FF0000', a:'#0000FF', card:'#f9f9f9' } },
+        { id: 'rgb_rev', name: 'RGB Revolution', cat: 'creative', icon: '🔴', fav: false, c: { bg:'#111', txt:'#fff', p:'#FF0000', a:'#00FF00', card:'#222' } },
+        { id: 'neon_future', name: 'Neon Future', cat: 'creative', icon: '🚀', fav: false, c: { bg:'#000', txt:'#fff', p:'#FF69B4', a:'#00FFFF', card:'#1a1a1a' } },
+        { id: 'full_color', name: 'Tech In Color', cat: 'creative', icon: '🎭', fav: false, c: { bg:'#fff', txt:'#333', p:'#FFA500', a:'#800080', card:'#f0f0f0' } },
+        { id: 'pix_pulse', name: 'Pixel Pulse', cat: 'creative', icon: '💓', fav: false, c: { bg:'#000', txt:'#fff', p:'#FF00FF', a:'#BF00FF', card:'#222' } },
 
         // MEDICAL
-        { id: 'prism_proto', name: 'Prism Protocol', cat: 'medical', icon: '💠', c: { bg:'#E0FFFF', txt:'#333', p:'#4B0082', a:'#E6E6FA', card:'#fff' } },
-        { id: 'holo_dream', name: 'HoloTech Dreams', cat: 'medical', icon: '🦄', c: { bg:'#FFB6C1', txt:'#333', p:'#ADD8E6', a:'#FFFFE0', card:'#fff' } },
-        { id: 'lum_logic', name: 'Luminous Logic', cat: 'medical', icon: '💡', c: { bg:'#708090', txt:'#fff', p:'#F0E68C', a:'#F5F5F5', card:'#778899' } },
+        { id: 'prism_proto', name: 'Prism Protocol', cat: 'medical', icon: '💠', fav: false, c: { bg:'#E0FFFF', txt:'#333', p:'#4B0082', a:'#E6E6FA', card:'#fff' } },
+        { id: 'holo_dream', name: 'HoloTech Dreams', cat: 'medical', icon: '🦄', fav: false, c: { bg:'#FFB6C1', txt:'#333', p:'#ADD8E6', a:'#FFFFE0', card:'#fff' } },
+        { id: 'lum_logic', name: 'Luminous Logic', cat: 'medical', icon: '💡', fav: false, c: { bg:'#708090', txt:'#fff', p:'#F0E68C', a:'#F5F5F5', card:'#778899' } },
 
-        // RESUME (Special)
-        { id: 'simple_cv', name: 'Classic Resume', cat: 'resume', icon: '📄', c: { bg:'#fff', txt:'#000', p:'#333', a:'#000', card:'#fff' } }
+        // RESUME
+        { id: 'simple_cv', name: 'Classic Resume', cat: 'resume', icon: '📄', fav: false, c: { bg:'#fff', txt:'#000', p:'#333', a:'#000', card:'#fff' } }
     ];
 
-    // ==================== 2. RENDER LOGIC ====================
+    // ==================== CURRENCY LOGIC ====================
+    const prices = { 'USD': {s:'$', v:10}, 'GBP': {s:'£', v:8}, 'NGN': {s:'₦', v:2000} };
+    let cur = 'NGN'; 
+
+    function updatePrices() {
+        cur = document.getElementById('currency').value;
+        const p = prices[cur];
+        document.getElementById('payPrice').innerText = p.s + p.v;
+    }
+
+    // ==================== RENDER LOGIC ====================
     const grid = document.getElementById('themeGrid');
     let currentFilter = 'all';
 
     function renderThemes(filter) {
         currentFilter = filter;
         grid.innerHTML = '';
-        themes.forEach(t => {
+        const sortedThemes = [...themes].sort((a, b) => b.fav - a.fav);
+        
+        sortedThemes.forEach(t => {
             if (filter === 'all' || t.cat === filter) {
                 const card = document.createElement('div');
                 card.className = `theme-card ${t.id === document.getElementById('selectedThemeId').value ? 'selected' : ''}`;
                 card.onclick = () => selectTheme(t.id);
                 
                 card.innerHTML = `
+                    <div class="favorite ${t.fav ? 'active' : 'inactive'}" onclick="event.stopPropagation(); toggleFavorite('${t.id}')">
+                        <i class="fas fa-star"></i>
+                    </div>
                     <div class="theme-icon">${t.icon}</div>
                     <div class="theme-name">${t.name}</div>
                     <div class="color-bubbles">
@@ -254,6 +377,18 @@
         });
     }
     
+    // Auto-Filter from URL (for index.html links)
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const filter = urlParams.get('filter');
+        if (filter) {
+            const btn = document.querySelector(`.cat-btn[onclick="filterThemes('${filter}')"]`);
+            if (btn) btn.click();
+        } else {
+            renderThemes('all');
+        }
+    };
+
     function filterThemes(cat) {
         document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
         event.target.closest('.cat-btn').classList.add('active');
@@ -265,13 +400,18 @@
         renderThemes(currentFilter);
     }
 
-    renderThemes('all');
+    function toggleFavorite(id) {
+        const theme = themes.find(t => t.id === id);
+        if (theme) {
+            theme.fav = !theme.fav;
+            renderThemes(currentFilter);
+        }
+    }
 
-    // ==================== 3. IMAGE UPLOAD ====================
+    // ==================== IMAGE UPLOAD ====================
     function handleImageUpload() {
         const input = document.getElementById('photoInput');
         const file = input.files[0];
-        
         if (file) {
             if (file.type !== 'image/png' && file.type !== 'image/jpeg') { alert('⚠️ Only PNG or JPG allowed.'); input.value = ''; return; }
             if (file.size > 2 * 1024 * 1024) { alert('⚠️ Max 2MB size.'); input.value = ''; return; }
@@ -287,7 +427,7 @@
         }
     }
 
-    // ==================== 4. SECURITY & PAYMENT ====================
+    // ==================== SECURITY & PAYMENT ====================
     function generateRefID(name) {
         let hash = 0;
         for (let i = 0; i < name.length; i++) { hash += name.charCodeAt(i); }
@@ -310,6 +450,7 @@
         const name = document.getElementById('fullName').value.trim();
         const themeId = document.getElementById('selectedThemeId').value;
         const theme = themes.find(t => t.id === themeId);
+        const p = prices[cur];
         
         if (!name) { alert("Please enter Full Name first."); return; }
 
@@ -317,18 +458,18 @@
         localStorage.setItem('currentRefID', refID);
 
         const whatsappNumber = '2347037819640'; 
-        const message = `*🏭 UNLOCK REQUEST*%0A%0A👤 Name: ${name}%0A🎨 Theme: ${theme.name}%0A🆔 REF ID: *${refID}*%0A%0A_I want to pay ₦2,000 for the unlock code._`;
+        const msg = `*🏭 UNLOCK REQUEST*%0A%0A👤 Name: ${name}%0A🎨 Theme: ${theme.name}%0A🆔 REF ID: *${refID}*%0A%0A_I want to pay ${p.s}${p.v} for the unlock code._`;
         
-        window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+        window.open(`https://wa.me/${whatsappNumber}?text=${msg}`, '_blank');
         
         document.getElementById('btn-pay').style.display = 'none';
         document.getElementById('unlockCode').style.display = 'block';
         document.getElementById('unlockCode').placeholder = `Code for ID: ${refID}`;
         document.getElementById('btn-download').style.display = 'block';
-        alert(`Your REF ID is ${refID}. Send this on WhatsApp to get your Key.`);
+        alert(`Step 1: Pay ${p.s}${p.v} via WhatsApp\nStep 2: Send me your REF ID: ${refID}\nStep 3: Enter the Key I send you.`);
     }
 
-    // ==================== 5. PREVIEW & DOWNLOAD ====================
+    // ==================== GENERATE PREVIEW ====================
     function generatePreview() {
         const name = document.getElementById('fullName').value.trim();
         const role = document.getElementById('jobTitle').value.trim();
@@ -336,7 +477,7 @@
         const email = document.getElementById('email').value.trim();
         const social = document.getElementById('social').value.trim();
         const skills = document.getElementById('skills').value.trim();
-        const img = document.getElementById('base64Image').value || 'https://via.placeholder.com/200?text=Photo';
+        const img = document.getElementById('base64Image').value || 'https://via.placeholder.com/200/cccccc/666666?text=Photo';
         
         if (!name || !role) { alert('⚠️ Please enter Name and Job Title.'); return; }
 
@@ -346,18 +487,17 @@
         
         if (t.cat === 'resume') {
             // RESUME TEMPLATE
-            html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>${name} - Resume</title><style>body{font-family:'Times New Roman',serif;max-width:850px;margin:30px auto;padding:50px;background:white;color:#000}.header{display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid #000;padding-bottom:20px;margin-bottom:30px}.header-left h1{font-size:2.5rem;margin-bottom:5px}.role{font-size:1.2rem;color:#555}img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid #000}.section{margin-bottom:25px}h2{background:#eee;padding:8px 12px;font-size:1.1rem;text-transform:uppercase;margin-bottom:10px}.skills{display:flex;flex-wrap:wrap;gap:10px}.tag{background:#333;color:#fff;padding:5px 10px;border-radius:15px;font-size:0.85rem}@media print{body{margin:0;padding:0}}</style></head><body><div class="header"><div class="header-left"><h1>${name}</h1><div class="role">${role}</div></div><img src="${img}"></div><p>${email} | ${social}</p><div class="section"><h2>Profile</h2><p>${bio}</p></div><div class="section"><h2>Skills</h2><div class="skills">${skills.split(',').map(s=>`<span class="tag">${s.trim()}</span>`).join('')}</div></div></body></html>`;
+            html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>${name} - Resume</title><style>body{font-family:'Times New Roman',serif;max-width:850px;margin:30px auto;padding:50px;background:white;color:#000}.header{display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid #000;padding-bottom:20px;margin-bottom:30px}.header-left h1{font-size:2.5rem;margin-bottom:5px}.role{font-size:1.2rem;color:#555}img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid #000}.section{margin-bottom:25px}h2{background:#eee;padding:8px 12px;font-size:1.1rem;text-transform:uppercase;margin-bottom:10px}.skills{display:flex;flex-wrap:wrap;gap:10px}.tag{background:#333;color:#fff;padding:5px 10px;border-radius:15px;font-size:0.85rem}@media print{body{margin:0;padding:0}}</style></head><body><div class="header"><div class="header-left"><h1>${name}</h1><div class="role">${role}</div></div><div class="header-right"><img src="${img}" alt="${name}"></div></div><div class="contact">${email ? `📧 ${email}` : ''} ${social ? `| 🔗 ${social}` : ''}</div><div class="section"><h2>Professional Profile</h2><p>${bio || 'Experienced professional.'}</p></div><div class="section"><h2>Core Skills</h2><div class="skills">${skills.split(',').map(s=>`<span class="tag">${s.trim()}</span>`).join('')}</div></div></body></html>`;
         } else {
             // WEBSITE TEMPLATE
             const skillsHTML = skills ? skills.split(',').map(s => `<span class="skill-tag">${s.trim()}</span>`).join('') : '';
-            html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${name}</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style>:root{--p:${t.c.p};--a:${t.c.a};--bg:${t.c.bg};--txt:${t.c.txt};--c:${t.c.card}}body{font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}.hero{text-align:center;padding:80px 20px;background:var(--c);border-bottom:4px solid var(--a);position:relative}.avatar{width:160px;height:160px;border-radius:50%;border:5px solid var(--p);object-fit:cover;margin-bottom:20px;box-shadow:0 10px 30px rgba(0,0,0,0.3)}h1{font-size:3rem;margin:10px 0;color:var(--p)}.role{font-size:1.3rem;color:var(--a);font-weight:bold;letter-spacing:3px;text-transform:uppercase}.btn{display:inline-flex;gap:8px;padding:12px 30px;background:var(--a);color:var(--bg);text-decoration:none;border-radius:8px;font-weight:bold;margin-top:20px;transition:0.3s}.btn:hover{transform:translateY(-3px)}.container{max-width:1000px;margin:0 auto;padding:50px 20px}.card{background:var(--c);padding:35px;border-radius:15px;margin-bottom:30px;border-left:6px solid var(--p);box-shadow:0 8px 20px rgba(0,0,0,0.1)}h2{color:var(--p);border-bottom:2px solid var(--a);padding-bottom:10px;margin-bottom:20px}.skill-tag{display:inline-block;background:var(--p);color:var(--bg);padding:8px 20px;border-radius:25px;margin:5px;font-weight:bold;font-size:0.9rem}footer{text-align:center;padding:40px;opacity:0.6;font-size:0.85rem}@media(max-width:768px){h1{font-size:2rem}}</style></head><body><div class="hero"><img src="${img}" class="avatar"><h1>${name}</h1><div class="role">${role}</div><p style="max-width:700px;margin:20px auto;opacity:0.9">${bio}</p><a href="mailto:${email}" class="btn"><i class="fas fa-envelope"></i> Contact Me</a>${social?` <a href="${social}" class="btn" style="background:var(--p)"><i class="fas fa-link"></i> Social</a>`:''}</div><div class="container">${skills?`<div class="card"><h2><i class="fas fa-code"></i> Skills</h2><div>${skillsHTML}</div></div>`:''}<div class="card"><h2><i class="fas fa-user-tie"></i> About</h2><p>${bio}</p></div><footer>© ${new Date().getFullYear()} ${name} | Powered by OBI_SEC Factory</footer></div></body></html>`;
+            html = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${name}</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style>:root{--p:${t.c.p};--a:${t.c.a};--bg:${t.c.bg};--txt:${t.c.txt};--c:${t.c.card}}body{font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--txt);margin:0;line-height:1.6}.hero{text-align:center;padding:80px 20px;background:var(--c);border-bottom:4px solid var(--a);position:relative}.avatar{width:160px;height:160px;border-radius:50%;border:5px solid var(--p);object-fit:cover;margin-bottom:20px;box-shadow:0 10px 30px rgba(0,0,0,0.3)}h1{font-size:3rem;margin:10px 0;color:var(--p)}.role{font-size:1.3rem;color:var(--a);font-weight:bold;letter-spacing:3px;text-transform:uppercase}.btn{display:inline-flex;gap:8px;padding:12px 30px;background:var(--a);color:var(--bg);text-decoration:none;border-radius:8px;font-weight:bold;margin-top:20px;transition:0.3s}.btn:hover{transform:translateY(-3px)}.btn-primary{background:var(--p)}.container{max-width:1000px;margin:0 auto;padding:50px 20px}.card{background:var(--c);padding:35px;border-radius:15px;margin-bottom:30px;border-left:6px solid var(--p);box-shadow:0 8px 20px rgba(0,0,0,0.1)}h2{color:var(--p);border-bottom:2px solid var(--a);padding-bottom:10px;margin-bottom:20px;font-size:1.8rem;display:flex;align-items:center;gap:10px}.skill-tag{display:inline-block;background:var(--p);color:var(--bg);padding:8px 20px;border-radius:25px;margin:5px;font-weight:bold;font-size:0.9rem}footer{text-align:center;padding:40px;opacity:0.6;font-size:0.85rem}@media(max-width:768px){h1{font-size:2rem}}</style></head><body><div class="hero"><img src="${img}" class="avatar"><h1>${name}</h1><div class="role">${role}</div><p style="max-width:700px;margin:20px auto;opacity:0.9">${bio}</p><a href="mailto:${email}" class="btn"><i class="fas fa-envelope"></i> Contact Me</a>${social?` <a href="${social}" class="btn btn-primary" target="_blank"><i class="fas fa-link"></i> Social</a>`:''}</div><div class="container">${skills?`<div class="card"><h2><i class="fas fa-code"></i> Skills</h2><div>${skillsHTML}</div></div>`:''}<div class="card"><h2><i class="fas fa-user-tie"></i> About</h2><p>${bio}</p></div><footer>© ${new Date().getFullYear()} ${name} | Powered by OBI_SEC Factory</footer></div></body></html>`;
         }
 
         const iframe = document.getElementById('previewFrame');
         iframe.srcdoc = html;
         document.getElementById('previewModal').style.display = 'block';
         
-        // Reset Modal
         document.getElementById('unlockCode').style.display = 'none';
         document.getElementById('unlockCode').value = '';
         document.getElementById('btn-download').style.display = 'none';
@@ -372,7 +512,7 @@
         
         if (!refID) { alert("Generate preview first."); return; }
         
-        const validKey = getComplexKey(refID); // MATH VERIFICATION
+        const validKey = getComplexKey(refID); 
         
         if (userCode === validKey) {
             const htmlContent = document.getElementById('previewFrame').srcdoc;
@@ -385,8 +525,7 @@
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
-            
-            alert('✅ Key Verified! Download Started.');
+            alert('✅ Key Verified! Downloading...');
             closePreview();
         } else {
             alert('❌ Invalid Key! Please pay to get the correct code.');

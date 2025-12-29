@@ -227,7 +227,7 @@
                     <p>Click to Upload Your Photo</p>
                     <small style="color:#999">Best results: Square image, 500x500px minimum</small>
                 </div>
-                <input type="file" id="photoInput" accept="image/png" style="display:none" onchange="handleImageUpload()">
+                <input type="file" id="photoInput" accept="image/png, image/jpeg, image/jpg" style="display:none" onchange="handleImageUpload()">
                 <center><img id="preview-img" alt="Preview"></center>
                 <input type="hidden" id="base64Image">
             </div>
@@ -372,12 +372,24 @@
     renderThemes('all');
 
     // ==================== IMAGE UPLOAD ====================
-    function handleImageUpload() {
+        function handleImageUpload() {
         const input = document.getElementById('photoInput');
         const file = input.files[0];
+        
         if (!file) return;
-        if (file.type !== 'image/png') { alert('⚠️ Please upload a PNG file only.'); input.value = ''; return; }
-        if (file.size > 2 * 1024 * 1024) { alert('⚠️ File size must be less than 2MB.'); input.value = ''; return; }
+        
+        // UPDATE: Check for PNG OR JPEG
+        if (file.type !== 'image/png' && file.type !== 'image/jpeg') {
+            alert('⚠️ Please upload a PNG or JPG file.');
+            input.value = '';
+            return;
+        }
+        
+        if (file.size > 2 * 1024 * 1024) {
+            alert('⚠️ File size must be less than 2MB.');
+            input.value = '';
+            return;
+        }
         
         const reader = new FileReader();
         reader.onload = function(e) {
@@ -424,25 +436,70 @@
 
     function closePreview() { document.getElementById('previewModal').style.display = 'none'; }
 
-    // ==================== PAYMENT & DOWNLOAD ====================
+        /* ================= PAYMENT & DOWNLOAD ================= */
+    
+    // 1. GENERATE REF ID FROM NAME
+    function generateRefID(name) {
+        let hash = 0;
+        for (let i = 0; i < name.length; i++) {
+            hash += name.charCodeAt(i);
+        }
+        return (hash * name.length) % 9000 + 1000; // 4-digit ID
+    }
+
+    // 2. THE SECRET ALGORITHM (Must match Admin Tool)
+    function getComplexKey(refID) {
+        // Characters: Caps, Small, Numbers, Symbols (No confusing chars like I/l/1)
+        const chars = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789@#$%&*";
+        let key = "";
+        let seed = refID * 9301 + 49297;
+
+        for(let i=0; i<6; i++) {
+            seed = (seed * 9301 + 49297) % 233280;
+            let index = Math.floor(seed % chars.length);
+            key += chars[index];
+        }
+        return key;
+    }
+
+    // 3. START PAYMENT FLOW
     function startPaymentFlow() {
-        const name = document.getElementById('fullName').value || 'User';
+        const name = document.getElementById('fullName').value.trim();
+        const role = document.getElementById('jobTitle').value.trim();
+        
+        if (!name || !role) { alert("Please enter your Full Name first!"); return; }
+
         const themeId = document.getElementById('selectedThemeId').value;
         const theme = themes.find(t => t.id === themeId);
+        
+        // Generate and Save REF ID
+        const refID = generateRefID(name);
+        localStorage.setItem('currentRefID', refID);
+
         const whatsappNumber = '2347037819640'; 
-        const message = `*🏭 PORTFOLIO UNLOCK REQUEST*%0A%0A👤 Name: ${name}%0A🎨 Theme: ${theme ? theme.name : 'Unknown'}%0A💰 Amount: ₦2,000%0A%0A_I want to buy the unlock key._`;
+        const message = `*🏭 PORTFOLIO UNLOCK*%0A%0A👤 Name: ${name}%0A🎨 Theme: ${theme ? theme.name : 'Unknown'}%0A🆔 REF ID: *${refID}*%0A%0A_I want to pay ₦2,000. Please send me the Unlock Code._`;
         
         window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
         
+        // UI Updates
         document.getElementById('btn-pay').style.display = 'none';
         document.getElementById('unlockCode').style.display = 'block';
+        document.getElementById('unlockCode').placeholder = `Code for ID: ${refID}`;
         document.getElementById('btn-download').style.display = 'block';
-        alert('Step 1: Pay via WhatsApp\nStep 2: Enter the key I send you\nStep 3: Download!');
+        
+        alert(`Step 1: Pay ₦2,000 on WhatsApp.\nStep 2: Send me your REF ID: ${refID}.\nStep 3: I will send you a 6-digit Secret Code.`);
     }
 
+    // 4. VERIFY AND DOWNLOAD
     function downloadFile() {
-        const userCode = document.getElementById('unlockCode').value.trim().toUpperCase();
-        const validKey = 'OBI-77'; 
+        // Get what user typed
+        const userCode = document.getElementById('unlockCode').value.trim();
+        
+        // Get the real correct key
+        const refID = parseInt(localStorage.getItem('currentRefID'));
+        if (!refID) { alert("Please click Unlock first."); return; }
+        
+        const validKey = getComplexKey(refID); // Generates the correct code math
         
         if (userCode === validKey) {
             const htmlContent = document.getElementById('previewFrame').srcdoc;
@@ -455,16 +512,18 @@
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
-            alert('✅ Success! Portfolio downloading...');
+            
+            alert('✅ Code Accepted! Downloading your portfolio...');
             closePreview();
         } else {
-            alert('❌ Invalid Unlock Key.');
+            alert('❌ Invalid Code! The code for ID ' + refID + ' is incorrect.');
         }
     }
 
+    // Close on outside click
     window.onclick = function(event) {
         if (event.target === document.getElementById('previewModal')) closePreview();
     }
-</script>
-</body>
-</html>
+<script/>
+        <body/>
+        <html/>

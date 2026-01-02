@@ -5,53 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Obioma Felicity Uzoh | Cybersecurity Portfolio</title>
     <style>
-        /* =========================================
-           1. CSS VARIABLES (THEME DEFINITIONS)
-           ========================================= */
+     
         :root {
-            /* Default Light Theme */
             --bg-body: #ffffff;
             --bg-card: #f8f9fa;
             --text-main: #333333;
             --text-muted: #555555;
-            --accent: #007bff; /* Standard Blue */
+            --accent: #007bff;
             --border: #e0e0e0;
             --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             --btn-text: #ffffff;
         }
 
-        /* === CHRISTMAS THEME (Modern) === */
+       
         [data-theme="christmas"] {
-            --bg-body: #fff5e6; /* Warm Cream */
+            --bg-body: #fff5e6; 
             --bg-card: #ffffff;
-            --text-main: #8b0000; /* Dark festive red */
-            --text-muted: #165b33; /* Evergreen */
-            --accent: #d42426; /* Bright Santa Red */
-            --border: #e6b800; /* Gold */
+            --text-main: #8b0000; 
+            --text-muted: #165b33; 
+            --accent: #d42426; 
+            --border: #e6b800; 
             --btn-text: #ffffff;
             
-            /* Modern minimal "Snow/Confetti" Pattern */
             background-image: radial-gradient(#e6b800 1.5px, transparent 1.5px), radial-gradient(#d42426 1.5px, transparent 1.5px);
             background-size: 35px 35px;
             background-position: 0 0, 17px 17px;
         }
 
-        /* Dark Theme */
         [data-theme="dark"] {
             --bg-body: #121212;
             --bg-card: #1e1e1e;
             --text-main: #e0e0e0;
             --text-muted: #a0a0a0;
-            --accent: #bb86fc; /* Light Purple */
+            --accent: #bb86fc; 
             --border: #333333;
             --btn-text: #000000;
         }
-
-        /* Hacker Theme (Hackviser / Terminal Style) */
+        
         [data-theme="hacker"] {
             --bg-body: #000000;
             --bg-card: #0d0d0d;
-            --text-main: #00ff00; /* Neon Green */
+            --text-main: #00ff00;
             --text-muted: #00cc00;
             --accent: #00ff00;
             --border: #004400;
@@ -59,21 +53,18 @@
             --btn-text: #000000;
         }
 
-        /* Cyber Blue (Defensive / SOC Style) */
         [data-theme="cyber-blue"] {
-            --bg-body: #0a192f; /* Deep Navy */
-            --bg-card: #112240; /* Lighter Navy */
-            --text-main: #ccd6f6; /* Off-white */
-            --text-muted: #8892b0; /* Blue-grey */
-            --accent: #64ffda; /* Cyan/Teal */
+            --bg-body: #0a192f; 
+            --bg-card: #112240; 
+            --text-main: #ccd6f6; 
+            --text-muted: #8892b0; 
+            --accent: #64ffda;
             --border: #233554;
             --font-main: 'Segoe UI', sans-serif;
             --btn-text: #0a192f;
         }
 
-        /* =========================================
-           2. GLOBAL STYLES
-           ========================================= */
+      
         * { box-sizing: border-box; margin: 0; padding: 0; transition: background 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s; }
         
         body {
@@ -84,8 +75,7 @@
             scroll-behavior: smooth;
             position: relative; 
             min-height: 100vh;
-            
-            /* === ANTI-COPY PROTECTION (CSS) === */
+
             -webkit-user-select: none; 
             -ms-user-select: none; 
             user-select: none; 
@@ -95,11 +85,7 @@
         a:hover { text-decoration: underline; }
         ul { list-style: none; }
 
-        /* =========================================
-           3. LAYOUT COMPONENTS
-           ========================================= */
         
-        /* Navbar */
         header {
             display: flex;
             justify-content: space-between;
@@ -112,7 +98,6 @@
             z-index: 1000;
         }
 
-        /* === LOGO ANIMATION (UPDATED FOR OBI_SEC) === */
         @keyframes type-and-wait-cycle {
             0% { width: 0; }
             30% { width: 8ch; } 
@@ -148,7 +133,6 @@
             nav ul { gap: 10px; font-size: 0.8rem; }
         }
 
-        /* Theme Switcher Selector */
         select#theme-selector {
             padding: 5px 10px;
             border-radius: 5px;
@@ -158,13 +142,11 @@
             font-family: var(--font-main);
             cursor: pointer;
         }
-        /* Style Christmas option specifically */
         select#theme-selector option[value="christmas"] {
             background-color: #d42426;
             color: white;
         }
 
-        /* Hero Section */
         .hero {
             min-height: 95vh;
             display: flex;
@@ -178,7 +160,6 @@
             z-index: 1; 
         }
 
-        /* === PROFILE PICTURE WRAPPER & MODERN LIGHTS === */
         .profile-wrapper {
             position: relative;
             width: 160px;
@@ -186,7 +167,6 @@
             margin-bottom: 25px;
         }
 
-        /* The actual image */
         .profile-pic {
             width: 100%;
             height: 100%;
@@ -198,16 +178,15 @@
             z-index: 2;
         }
 
-        /* The Modern String Lights - ONLY shows on Christmas theme */
         [data-theme="christmas"] .profile-wrapper::before {
             content: "";
             position: absolute;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'%3E%3Cpath fill='none' stroke='%23e6b800' stroke-width='2' d='M0,20 Q50,60 100,20 T200,20'/%3E%3Ccircle fill='%23d42426' cx='25' cy='35' r='6'/%3E%3Ccircle fill='%23165b33' cx='75' cy='35' r='6'/%3E%3Ccircle fill='%23e6b800' cx='125' cy='35' r='6'/%3E%3Ccircle fill='%23d42426' cx='175' cy='35' r='6'/%3E%3C/svg%3E");
             background-size: contain;
             background-repeat: no-repeat;
-            width: 180px; /* Wider to drape across */
+            width: 180px;
             height: 80px;
-            top: -30px; /* Positioned above */
+            top: -30px;
             left: -10px;
             z-index: 3;
         }
@@ -226,7 +205,6 @@
             z-index: 10;
         }
         
-        /* Button Styles */
         .btn {
             display: inline-block;
             padding: 10px 20px;
@@ -248,11 +226,9 @@
         
         .btn:hover, .btn-outline:hover { opacity: 0.8; }
 
-        /* General Sections */
         .container { padding: 60px 10%; border-bottom: 1px solid var(--border); }
         .section-title { font-size: 1.8rem; margin-bottom: 40px; text-align: center; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Grid Layout */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -273,7 +249,6 @@
         .card p, .card li { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 10px; }
         .card ul { padding-left: 20px; list-style-type: square; }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 30px;
@@ -282,14 +257,12 @@
             font-size: 0.9rem;
         }
 
-        /* Hacker Theme Specific Animation */
         [data-theme="hacker"] .hero h1::after {
             content: "_";
             animation: blink 1s infinite;
         }
         @keyframes blink { 50% { opacity: 0; } }
 
-        /* === CLICK DECORATION ANIMATION === */
         .click-decoration {
             position: absolute;
             pointer-events: none;
@@ -451,6 +424,8 @@
                 <ul>
                     <li><strong>CAPT (Certified Associate Penetration Tester)</strong> - Hackviser (Nov 2025)</li>
                     <li><strong>Google Cybersecurity Professional</strong> - Coursera (Nov 2025)</li>
+                    <li><strong>CWSE (Certified Web Security Expert)</strong> - Hackviser (Dec 2025)</li>
+                    <l1><strong>Introduction to Cybersecurity</strong> - Cisco (Jan 2026)</l1>
                     <li><strong>CompTIA Security+ (SY0-701)</strong> - In Progress</li>
                 </ul>
             </div>
@@ -504,7 +479,7 @@
 </section>
     
     <footer>
-        <p>&copy; 2025 Obioma Felicity Uzoh. All Rights Reserved.</p>
+        <p>&copy; 2026 Obioma Felicity Uzoh. All Rights Reserved.</p>
     </footer>
 
     <script>

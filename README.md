@@ -1,7 +1,10 @@
+<div align="center">
+  
 # 🛡️ Obioma Felicity Uzoh (TechOunik)
 
 ### **Entry-Level Cybersecurity Analysts**
 
+</div>
 ---
 
 <div align="center">
@@ -24,4 +27,4 @@ While this GitHub repository hosts my raw code and labs, **my full professional 
 
 **Connect With Me:**
 * [LinkedIn](https://www.linkedin.com/in/felicityuzoh)
-* **Email:** obiomauzoh16@gmail.com
+* **Email:** obiomafelicityuzoh@gmail.com

@@ -27,4 +27,4 @@ While this GitHub repository hosts my raw code and labs, **my full professional 
 
 **Connect With Me:**
 * [LinkedIn](https://www.linkedin.com/in/felicityuzoh)
-* **Email:** obiomafelicityuzoh@gmail.com
+* **Email:** obiomauzoh16@gmail.com

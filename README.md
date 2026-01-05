@@ -6,7 +6,7 @@
 
 <div align="center">
 
-# 🔴 **[CLICK HERE TO VIEW MY LIVE PORTFOLIO](https://techounik.github.io)** 🔴
+# 🔴 **[CLICK HERE TO VIEW MY LIVE PORTFOLIO](https://techounik.github.io/techounik/)** 🔴
 ### **Verified Credentials | Live Labs | Technical Arsenal**
 
 </div>
@@ -18,7 +18,7 @@ I am a results-driven cybersecurity professional and **Hackviser Student Ambassa
 
 While this GitHub repository hosts my raw code and labs, **my full professional profile, interactive project breakdowns, and audit reports are exclusively available on my main website.**
 
-👉 **[Head over to techounik.github.io to see my work in action.](https://techounik.github.io)**
+👉 **[Head over to techounik.github.io to see my work in action.](https://techounik.github.io/techounik/)**
 
 ---
 

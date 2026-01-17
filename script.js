@@ -10,12 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const htmlElement = document.documentElement;
 
     const savedTheme = localStorage.getItem('selectedTheme');
+    
     if (savedTheme) {
         htmlElement.setAttribute('data-theme', savedTheme);
         themeSelector.value = savedTheme;
     } else {
-        themeSelector.value = 'christmas';
-        htmlElement.setAttribute('data-theme', 'christmas');
+        themeSelector.value = 'cyber-blue';
+        htmlElement.setAttribute('data-theme', 'cyber-blue');
     }
 
     themeSelector.addEventListener('change', function() {
@@ -29,6 +30,7 @@ const christmasEmojis = ['❄️', '🎄', '🎅', '🎁', '✨', '☃️', '�
 
 document.addEventListener('click', function(e) {
     const htmlElement = document.documentElement;
+    // Stop if we are not in Christmas mode
     if (htmlElement.getAttribute('data-theme') !== 'christmas') return;
 
     const decoration = document.createElement('span');
@@ -46,7 +48,7 @@ document.addEventListener('contextmenu', function(e) {
 });
 
 document.onkeydown = function(e) {
-      if (event.keyCode == 123) {
+    if (event.keyCode == 123) { // F12
         return false;
     }
     if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { 
@@ -102,7 +104,7 @@ if (document.getElementById('particles-js')) {
             }
         },
         "interactivity": {
-            "detect_on": "window",
+            "detect_on": "window", 
             "events": {
                 "onhover": {
                     "enable": true,

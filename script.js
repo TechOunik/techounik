@@ -46,20 +46,86 @@ document.addEventListener('contextmenu', function(e) {
 });
 
 document.onkeydown = function(e) {
-    // Disable F12
-    if (event.keyCode == 123) {
+      if (event.keyCode == 123) {
         return false;
     }
-    // Disable Ctrl+Shift+I
     if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { 
         return false;
     }
-    // Disable Ctrl+Shift+J
     if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { 
         return false;
     }
-    // Disable Ctrl+U (View Source)
     if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { 
         return false;
     }
+}
+
+if (document.getElementById('particles-js')) {
+    particlesJS("particles-js", {
+        "particles": {
+            "number": {
+                "value": 80,
+                "density": {
+                    "enable": true,
+                    "value_area": 800
+                }
+            },
+            "color": {
+                "value": "#00ff88" 
+            },
+            "shape": {
+                "type": "circle",
+            },
+            "opacity": {
+                "value": 0.5,
+                "random": false,
+            },
+            "size": {
+                "value": 3,
+                "random": true,
+            },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#00ff88",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 2,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+            }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": {
+                    "enable": true,
+                    "mode": "grab"
+                },
+                "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                },
+                "resize": true
+            },
+            "modes": {
+                "grab": {
+                    "distance": 140,
+                    "line_linked": {
+                        "opacity": 1
+                    }
+                },
+                "push": {
+                    "particles_nb": 4
+                }
+            }
+        },
+        "retina_detect": true
+    });
 }

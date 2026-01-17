@@ -262,7 +262,20 @@ footer { text-align: center; padding: 30px; background-color: var(--bg-card); co
 }
 .hero-text { opacity: 0; animation: systemBoot 1s ease-out forwards; animation-delay: 0.2s; }
 .hero-image { opacity: 0; animation: systemBoot 1s ease-out forwards; animation-delay: 0.5s; }
-.section-title { opacity: 0; animation: systemBoot 0.8s ease-out forwards; animation-delay: 0.3s; }
+.section-title { 
+    font-family: 'Orbitron', sans-serif; 
+    font-size: 1.8rem; 
+    margin-bottom: 40px; 
+    text-align: center; 
+    color: var(--accent); 
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+    font-weight: 700;    
+    
+    opacity: 0;
+    animation: systemBoot 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+}
 .card { opacity: 0; animation: systemBoot 0.8s ease-out forwards; animation-delay: 0.6s; }
 .btn { opacity: 0; animation: systemBoot 0.5s ease-out forwards; animation-delay: 0.8s; }
 

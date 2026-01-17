@@ -6,6 +6,7 @@
     <title>Obioma Felicity Uzoh | Cybersecurity Portfolio</title>
     
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -31,31 +32,72 @@
         </nav>
     </header>
 
-    <section class="hero" id="about">
-        <div class="profile-wrapper">
-            <img src="me.jpg" alt="Obioma Felicity Uzoh" class="profile-pic">
+   <section class="hero" id="about" style="
+    background: linear-gradient(to bottom, var(--bg-main), var(--bg-card)), url('https://img.freepik.com/free-vector/abstract-technology-particle-background_52683-25766.jpg'); 
+    background-blend-mode: overlay;
+    background-size: cover; 
+    background-position: center; 
+    min-height: 90vh; 
+    display: flex; 
+    align-items: center;
+    position: relative;
+    padding-top: 80px;">
+
+    <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; width: 100%;">
+        
+        <div class="hero-text" style="flex: 1; min-width: 300px; padding-right: 20px; z-index: 2;">
+            <p style="color: var(--accent); font-family: 'Courier New', monospace; font-size: 1.1rem; margin-bottom: 10px;">
+                Hi, my name is
+            </p>
+            
+            <h1 style="font-family: 'Orbitron', sans-serif; font-size: 3.5rem; color: var(--text-main); line-height: 1.1; margin-bottom: 10px; font-weight: 700;">
+                Obioma<br>Felicity Uzoh
+            </h1>
+            
+            <h2 style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; color: var(--accent); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">
+                Cybersecurity Analyst | Penetration Tester | Network Defender
+            </h2>
+
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; line-height: 1.6; margin-bottom: 30px;">
+                Final-year student and <strong>Hackviser Student Ambassador</strong> with hands-on experience in penetration testing, 
+                threat analysis, and security monitoring. Dedicated to securing digital infrastructures and simplifying complex technical concepts.
+            </p>
+
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 30px;">
+                <a href="OBIOMA FELICITY UZOH CV.pdf" download class="btn" style="background: var(--accent); color: var(--bg-main); padding: 12px 25px; font-weight: bold; border-radius: 4px; text-decoration: none;">
+                    Download CV 📄
+                </a>
+                
+                <a href="#projects" class="btn" style="background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 12px 25px; font-weight: bold; border-radius: 4px; text-decoration: none;">
+                    View Projects
+                </a>
+            </div>
+
+            <div class="social-links" style="font-size: 1.5rem; display: flex; gap: 20px;">
+                <a href="https://www.linkedin.com/in/felicityuzoh" target="_blank" style="color: var(--text-main); transition: color 0.3s;"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/TechOunik" target="_blank" style="color: var(--text-main); transition: color 0.3s;"><i class="fab fa-github"></i></a>
+                <a href="https://medium.com/@obiomauzoh16" target="_blank" style="color: white;"><i class="fab fa-medium"></i></a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=obiomafelicityuzoh@gmail.com" target="_blank" style="color: var(--text-main); transition: color 0.3s;"><i class="fas fa-envelope"></i></a>
+            </div>
         </div>
 
-        <h1>Obioma Felicity Uzoh</h1>
-        <h2>Cybersecurity Analyst | Penetration Tester | Network Defender</h2>
-        <p>
-            Final-year student and Hackviser Student Ambassador with hands-on experience in penetration testing, 
-            threat analysis, and security monitoring. Dedicated to securing digital infrastructures and simplifying complex technical concepts.
-        </p>
-        
-        <div class="social-links">
-            <a href="OBIOMA FELICITY UZOH CV.pdf" download class="btn">Download CV 📄</a>
-            
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=obiomafelicityuzoh@gmail.com" 
-               target="_blank" 
-               class="btn btn-outline">
-               Email Me 📧
-            </a>
-            
-            <a href="https://www.linkedin.com/in/felicityuzoh" target="_blank" class="btn btn-outline">LinkedIn</a>
-            <a href="https://github.com/TechOunik" target="_blank" class="btn btn-outline">GitHub</a>
+        <div class="hero-image" style="flex: 1; display: flex; justify-content: center; min-width: 300px; margin-top: 30px;">
+            <div style="
+                width: 350px; 
+                height: 350px; 
+                border-radius: 50%; 
+                overflow: hidden; 
+                border: 4px solid var(--accent); 
+                box-shadow: 0 0 30px var(--accent), inset 0 0 20px var(--accent);
+                position: relative;
+                animation: pulse-glow 3s infinite alternate;">
+                
+                <img src="me.jpg" alt="Obioma Felicity Uzoh" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
         </div>
-    </section>
+
+    </div>
+</section>
     
    <section id="projects" class="container">
     <h2 class="section-title">Technical Projects</h2>
@@ -192,8 +234,7 @@
                     <li><strong>CAPT (Certified Associate Penetration Tester)</strong> - Hackviser (Nov 2025)</li>
                     <li><strong>Google Cybersecurity Professional</strong> - Coursera (Nov 2025)</li>
                     <li><strong>CWSE (Certified Web Security Expert)</strong> - Hackviser (Dec 2025)</li>
-                    <l1><strong>Introduction to Cybersecurity</strong> - Cisco (Jan 2026)</l1>
-                    <li><strong>CompTIA Security+ (SY0-701)</strong> - In Progress</li>
+                   <li><strong>Introduction to Cybersecurity</strong> - Cisco (Jan 2026)</li>
                 </ul>
             </div>
             <div class="card">

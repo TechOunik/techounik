@@ -348,3 +348,13 @@ footer {
         animation-delay: 0.3s;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .logo {
+        display: none !important;
+    }
+
+    header {
+        justify-content: center; 
+    }
+}

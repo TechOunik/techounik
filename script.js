@@ -129,3 +129,16 @@ if (document.getElementById('particles-js')) {
         "retina_detect": false
     });
 }
+
+function toggleMenu() {
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector("nav ul");
+
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+}
+
+document.querySelectorAll("nav a").forEach(n => n.addEventListener("click", () => {
+    document.querySelector(".hamburger").classList.remove("active");
+    document.querySelector("nav ul").classList.remove("active");
+}));

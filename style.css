@@ -471,90 +471,96 @@ footer { text-align: center; padding: 30px; background-color: var(--bg-card); co
 }
 
 .book-card {
-    background: linear-gradient(135deg, rgba(10, 25, 47, 0.9), rgba(0, 255, 136, 0.1));
+    background: linear-gradient(135deg, rgba(10, 25, 47, 0.95), rgba(0, 255, 136, 0.1));
     border: 1px solid var(--accent);
-    border-radius: 15px;
-    padding: 40px;
+    border-radius: 20px;
+    padding: 60px;
+    min-height: 400px; 
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
-    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.1);
+    gap: 50px; 
+    box-shadow: 0 20px 50px rgba(0, 255, 136, 0.15);
     position: relative;
-    overflow: hidden;
+    overflow: visible; 
+    margin-top: 80px;
 }
 
 .book-info {
-    flex: 1;
+    flex: 1.2; 
     z-index: 2;
 }
 
 .book-info h2 {
     font-family: 'Orbitron', sans-serif;
     color: var(--accent);
-    margin-bottom: 15px;
-    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-size: 2.2rem; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .book-info p {
-    color: var(--text-secondary);
-    margin-bottom: 25px;
-    font-size: 1rem;
-    line-height: 1.6;
+    color: var(--text-main);
+    margin-bottom: 35px;
+    font-size: 1.1rem; 
+    line-height: 1.8;
+}
+
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: var(--bg-body);
+    padding: 15px 35px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px var(--accent);
 }
 
 .book-visual {
     flex: 1;
     display: flex;
     justify-content: center;
+    perspective: 1000px;
     z-index: 2;
 }
 
 .book-visual img {
-    max-width: 250px;
-    filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.3));
-    transition: transform 0.3s ease;
-}
-
-.book-visual img:hover {
-    transform: scale(1.05) rotate(2deg);
-}
-
-@media screen and (max-width: 768px) {
-    .book-card {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding: 30px 20px;
-    }
-    
-    .book-visual img {
-        max-width: 180px;
-        margin-bottom: 20px;
-    }
-}
-
-.book-visual {
-    perspective: 1000px; 
-}
-
-.book-visual img {
-    max-width: 250px;
+    max-width: 350px;
+    width: 100%;
+    filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.6));
     animation: float-book 6s ease-in-out infinite;
     transform-style: preserve-3d;
-    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
 }
 
 @keyframes float-book {
-    0%, 100% {
-        transform: translateY(0px) rotateY(-5deg);
-    }
-    50% {
-        transform: translateY(-20px) rotateY(5deg);
-    }
+    0%, 100% { transform: translateY(0px) rotateY(-5deg); }
+    50% { transform: translateY(-25px) rotateY(5deg); }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
+    .book-card {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 40px 20px;
+        gap: 30px;
+    }
+    
     .book-visual img {
-        max-width: 180px;
+        max-width: 280px; 
+        margin-bottom: 20px;
+    }
+
+    .book-info h2 {
+        font-size: 1.5rem;
     }
 }

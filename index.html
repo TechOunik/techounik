@@ -30,7 +30,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Education</a></li>
-                <li><a href="#blog">My Writing</a></li>
+                <li><a href="#blog">Blog & Articles</a></li>
                 <li>
                     <select id="theme-selector">
                         <option value="cyber-blue" selected>🛡️ Blue Team</option>
@@ -177,62 +177,52 @@
     </section>
 
     
-    <section id="incident-logs" class="container">
-          <h2 class="section-title">
+       <section id="incident-logs" class="container">
+        <h2 class="section-title">
             <span style="color: #cf222e; font-size: 0.8rem; vertical-align: middle;">⬤</span> 
-            Security Lab Logs & Incident Reports
+            Live Lab Investigations
         </h2>
-        <div class="project-card" style="border: 1px solid var(--border); padding: 25px; border-radius: 12px; background: var(--bg-card); position: relative;">
-    
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-        <span style="background: var(--accent); color: var(--bg-main); padding: 4px 12px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase;">
-            SQL FORENSICS
-        </span>
-        <span style="font-size: 0.85rem; color: var(--text-muted); font-style: italic;">
-            Date: Oct 2025
-        </span>
-    </div>
-
-    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
-        <h3 style="color: var(--text-main); margin: 0; font-size: 1.2rem; font-weight: bold;">
-            SQL Security Investigation
-        </h3>
         
-        <a href="https://github.com/TechOunik/SQL-Security-Investigations-Project" target="_blank" style="background: transparent; border: 1px solid var(--accent); color: var(--accent); text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: bold; display: inline-block; transition: all 0.3s ease;">
-            View on Github
-        </a>
-    </div>
-
-    <p style="color: var(--text-main); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.6;">
-        Conducted a forensic analysis of login logs to identify potential breaches. Used complex <strong>SQL queries</strong> (AND, OR, NOT, LIKE) to filter suspicious after-hours activity and isolate traffic from non-standard countries.
-    </p>
-
-    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-        <span style="font-size: 0.75rem; padding: 4px 10px; border: 1px solid var(--border); border-radius: 20px; color: var(--text-muted);">MariaDB</span>
-        <span style="font-size: 0.75rem; padding: 4px 10px; border: 1px solid var(--border); border-radius: 20px; color: var(--text-muted);">Log Analysis</span>
-        <span style="font-size: 0.75rem; padding: 4px 10px; border: 1px solid var(--border); border-radius: 20px; color: var(--text-muted);">Incident Response</span>
-    </div>
-
-</div>
-      
-        <div style="background-color: var(--bg-card); border-radius: 10px; overflow: hidden; border: 1px solid var(--border);">
-            
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; border-bottom: 1px solid var(--border); flex-wrap: wrap;">
-                <div style="flex: 1; min-width: 250px;">
-                    <span class="badge" style="background: #cf222e; font-size: 0.7rem; color: white; padding: 3px 8px; border-radius: 4px;">HIGH SEVERITY</span>
-                    <h4 style="margin: 5px 0; color: var(--text-main);">MTA-2025-01-22: Fake Google Authenticator Analysis</h4>
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">
-                        Victim: <b>shutchenson</b> | Indicators: Spoofed Domain & C2 Exfiltration
-                    </p>
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="terminal-dot red-dot"></span>
+                    <span class="terminal-dot yellow-dot"></span>
+                    <span class="terminal-dot green-dot"></span>
                 </div>
-                <div style="text-align: right;">
-                    <p style="font-size: 0.8rem; margin-bottom: 5px; color: var(--text-muted);"><i>Analysis Date: Dec 2025</i></p>
-                    <a href="https://github.com/TechOunik/Fake-Google-Malware-Analysis" target="_blank" class="btn" style="padding: 5px 15px; font-size: 0.8rem;">View on GitHub</a>
-                </div>
+                <div class="terminal-title">root@kali:~/investigations</div>
             </div>
-          
- <div style="padding: 15px 20px; text-align: center; color: var(--text-muted); font-size: 0.9rem;">
-                🛡️ <i>More incident logs coming as labs are completed...</i>
+            
+            <div class="terminal-body">
+                <p>
+                    <span class="cmd">➜  ~ cat sql_forensics_report.log</span><br>
+                    <span class="output">[INFO] Scanning MariaDB logs for anomalies...</span>
+                    <span class="output">[ALERT] Suspicious query detected: 'OR 1=1' from IP 192.168.1.105</span>
+                    <span class="output">[ACTION] Traffic isolated. Source: Non-standard country origin.</span>
+                </p>
+                <div style="margin: 15px 0; border-left: 2px solid var(--accent); padding-left: 10px;">
+                    <h4 style="margin: 0; color: var(--text-main);">Project: SQL Security Investigation</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 5px 0;">
+                        Conducted forensic analysis on login logs using complex SQL queries (AND, OR, LIKE) to filter suspicious activity.
+                    </p>
+                    <a href="https://github.com/TechOunik/SQL-Security-Investigations-Project" target="_blank" style="color: var(--accent); font-size: 0.8rem;">View Evidence on GitHub >></a>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid #30363d; margin: 20px 0;">
+
+                <p>
+                    <span class="cmd">➜  ~ ./analyze_malware.py --target=fake_authenticator</span><br>
+                    <span class="output">[CRITICAL] C2 Domain identified: 'g00gle-auth-update.com'</span>
+                    <span class="output">[INFO] Victim User: shutchenson</span>
+                    <span class="output">[STATUS] Report generated: MTA-2025-01-22</span>
+                </p>
+                 <div style="margin: 15px 0; border-left: 2px solid #cf222e; padding-left: 10px;">
+                    <h4 style="margin: 0; color: var(--text-main);">Project: Fake Google Authenticator Analysis</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 5px 0;">
+                        Traced spoofed domain & C2 exfiltration path.
+                    </p>
+                    <a href="https://github.com/TechOunik/Fake-Google-Malware-Analysis" target="_blank" style="color: var(--accent); font-size: 0.8rem;">View Malware Report >></a>
+                </div>
             </div>
         </div>
     </section>
@@ -310,7 +300,7 @@
             </span>
             
           <a href="https://forms.gle/uKL493GkpdkZBBBZ6" target="_blank" class="btn" style="background: var(--accent); color: var(--bg-main); padding: 12px 30px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block; transition: transform 0.2s;">
-                JOIN THE WAITLIST <i class="fas fa-hourglass-half"></i>
+                CLICK HERE<i class="fas fa-hourglass-half"></i>
             </a>
         </div>
 

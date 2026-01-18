@@ -336,7 +336,6 @@ footer { text-align: center; padding: 30px; background-color: var(--bg-card); co
         margin-top: 10px;
     }
 
-    /* 6. Hero Section Fixes */
     .hero-image { order: -1; margin-bottom: 30px; margin-top: 0 !important; animation-delay: 0.1s; }
     .hero-text { padding-right: 0 !important; text-align: center; animation-delay: 0.3s; }
     .hero-text div[style*="display: flex"] { justify-content: center; }
@@ -354,16 +353,16 @@ footer { text-align: center; padding: 30px; background-color: var(--bg-card); co
     font-size: 0.75rem;
     font-family: 'Orbitron', sans-serif;
     color: var(--accent);
-    background: rgba(0, 0, 0, 0.2); /* Dark see-through background */
+    background: rgba(0, 0, 0, 0.2); 
     border: 1px solid var(--accent);
     padding: 5px 12px;
-    border-radius: 20px; /* Makes them oval pills */
+    border-radius: 20px; 
     transition: all 0.3s ease;
 }
 
 .tech-tag:hover {
     background: var(--accent);
-    color: var(--bg-card); /* Flips color on hover */
+    color: var(--bg-card); 
     transform: translateY(-2px);
 }
 
@@ -414,3 +413,59 @@ footer { text-align: center; padding: 30px; background-color: var(--bg-card); co
 
 .cmd { color: var(--accent); }
 .output { color: #8b949e; display: block; margin-bottom: 10px; }
+
+.floating-book-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--bg-card);
+    border: 2px solid var(--accent);
+    color: var(--text-main);
+    padding: 12px 25px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    transition: all 0.3s ease;
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-book-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    background: var(--accent);
+    color: var(--bg-body);
+    box-shadow: 0 0 20px var(--accent);
+}
+
+.floating-book-btn .badge {
+    background: #ff0000;
+    color: white;
+    font-size: 0.6rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    font-weight: bold;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@media screen and (max-width: 768px) {
+    .floating-book-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        font-size: 0.8rem;
+    }
+}

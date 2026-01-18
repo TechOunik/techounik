@@ -117,40 +117,65 @@
     <h2 class="section-title">Technical Projects</h2>
     
     <div class="grid">
+        
         <div class="card">
             <h3>🔴 Vulnerability Assessment (Red Team)</h3>
-            <p><strong>Tools:</strong> Kali Linux, Metasploit, Nmap</p>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">Kali Linux</span>
+                <span class="tech-tag">Metasploit</span>
+                <span class="tech-tag">Nmap</span>
+                <span class="tech-tag">Burp Suite</span>
+            </div>
+
+            <p><strong>The Challenge:</strong> Simulated a real-world external attack on a virtualized corporate network to identify weak points.</p>
             <ul>
-                <li>Executed full-lifecycle penetration tests on target virtual machines.</li>
-                <li>Identified privilege escalation paths and critical web vulnerabilities (SQLi, XSS).</li>
-                <li>Authored reports based on OWASP Top 10 standards.</li>
+                <li>Executed full-lifecycle penetration tests, identifying <strong>3 critical privilege escalation paths</strong>.</li>
+                <li>Exploited SQLi and XSS vulnerabilities to demonstrate data exfiltration risks.</li>
+                <li><strong>Impact:</strong> Produced a remediation report compliant with OWASP Top 10 standards.</li>
             </ul>
-            <div style="margin-top: 15px;">
-                <a href="Hackviser-overview.pdf" target="_blank" class="btn" style="font-size: 0.8rem; padding: 5px 15px;">View Project Docs 📄</a>
+            <div style="margin-top: auto;">
+                <a href="Hackviser-overview.pdf" target="_blank" class="btn" style="font-size: 0.8rem; padding: 8px 20px; width: 100%; text-align: center;">View Project Docs 📄</a>
             </div>
         </div>
 
         <div class="card">
             <h3>🔵 Network Traffic Analysis (Blue Team)</h3>
-            <p><strong>Tools:</strong> Wireshark, TCP/IP</p>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">Wireshark</span>
+                <span class="tech-tag">TCP/IP</span>
+                <span class="tech-tag">Packet Analysis</span>
+            </div>
+
+            <p><strong>The Challenge:</strong> Tasked with detecting hidden malicious activity within high-volume network traffic.</p>
             <ul>
-                <li>Analyzed 500+ packet captures to detect anomalies in a virtualized lab.</li>
-                <li>Successfully traced and identified simulated brute-force attacks.</li>
-                <li>Validated network integrity through deep packet inspection.</li>
+                <li>Analyzed <strong>500+ packet captures</strong> to separate benign traffic from anomalies.</li>
+                <li>Successfully traced a simulated brute-force attack back to its source IP.</li>
+                <li><strong>Impact:</strong> Validated network integrity and improved firewall rulesets based on findings.</li>
             </ul>
         </div>
 
         <div class="card">
             <h3>🛡️ Incident Response & Logging</h3>
-            <p><strong>Tools:</strong> SIEM, Python, SQL</p>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">SIEM</span>
+                <span class="tech-tag">Python Scripting</span>
+                <span class="tech-tag">SQL</span>
+            </div>
+
+            <p><strong>The Challenge:</strong> Building an automated workflow to detect and log unauthorized access attempts.</p>
             <ul>
-                <li>Performed log analysis and threat detection simulations.</li>
-                <li>Investigated security breaches to refine incident response playbooks.</li>
-                <li>Built isolated environments in VMware to safely audit IAM controls.</li>
+                <li>Simulated security breaches in a VMware environment to test response times.</li>
+                <li>Wrote <strong>Python scripts</strong> to parse server logs and alert on suspicious patterns.</li>
+                <li><strong>Impact:</strong> Refined incident response playbooks, reducing detection time in lab simulations.</li>
             </ul>
         </div>
+
     </div> 
-    </section> 
+    </section>
+
     
     <section id="incident-logs" class="container">
           <h2 class="section-title">
@@ -296,7 +321,7 @@
     
     <h2 class="section-title" style="margin-bottom: 40px; display: flex; align-items: center; gap: 10px;">
         <i class="fas fa-pen-nib" style="color: var(--accent);"></i> 
-        <span style="color: var(--text-main);">MY <span style="color: var(--accent);">WRITING</span></span>
+        <span style="color: var(--text-main);">Blog<span style="color: var(--accent);">& Articles</span></span>
     </h2>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">

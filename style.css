@@ -342,3 +342,28 @@ footer { text-align: center; padding: 30px; background-color: var(--bg-card); co
     .hero-text div[style*="display: flex"] { justify-content: center; }
     .social-links { justify-content: center; }
 }
+
+.tech-stack {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.tech-tag {
+    font-size: 0.75rem;
+    font-family: 'Orbitron', sans-serif;
+    color: var(--accent);
+    background: rgba(0, 0, 0, 0.2); /* Dark see-through background */
+    border: 1px solid var(--accent);
+    padding: 5px 12px;
+    border-radius: 20px; /* Makes them oval pills */
+    transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+    background: var(--accent);
+    color: var(--bg-card); /* Flips color on hover */
+    transform: translateY(-2px);
+}
+

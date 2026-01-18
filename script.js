@@ -144,3 +144,14 @@ document.querySelectorAll("nav a").forEach(n => n.addEventListener("click", () =
     document.querySelector(".hamburger").classList.remove("active");
     document.querySelector("nav ul").classList.remove("active");
 }));
+
+const styles = [
+    'color: #00ff88', 
+    'background: #0a192f', 
+    'font-size: 20px', 
+    'padding: 10px', 
+    'border: 3px solid #00ff88'
+].join(';');
+
+console.log('%c🕵️ I SEE YOU LOOKING AT MY CODE...', styles);
+console.log('%cIf you are looking for vulnerabilities, remember: I am a Blue Teamer. I see you first. 😉', 'color: #ccd6f6; font-size: 14px;');

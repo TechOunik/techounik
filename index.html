@@ -226,23 +226,22 @@
                     <a href="https://github.com/TechOunik/Fake-Google-Malware-Analysis" target="_blank" style="color: var(--accent); font-size: 0.8rem;">View Malware Report >></a>
                 </div>
                 
-                <hr style="border: 0; border-top: 1px solid #30363d; margin: 20px 0;">
+                  <hr style="border: 0; border-top: 1px solid #30363d; margin: 20px 0;">
 
                 <p>
-                    <span class="cmd">➜  ~ python3 blueteam_kit.py --mode=monitor</span><br>
-                    <span class="output">[INIT] Loading BlueTeam defense modules...</span>
-                    <span class="output">[SUCCESS] File Integrity Monitor: ACTIVE</span>
-                    <span class="output">[LOGS] Parsed 500+ auth entries. No anomalies detected.</span>
+                    <span class="cmd">➜  ~ python3 evtx_hunter.py evidence.evtx</span><br>
+                    <span class="output">[INFO] Parsing Windows Event Log (Binary)...</span>
+                    <span class="output">[ALERT] Event 4720 Detected: New User 'backup_admin' created!</span>
+                    <span class="output">[WARN] Event 1102 Detected: Audit Logs were cleared.</span>
                 </p>
-            </div>
-            
                 <div style="margin: 15px 0; border-left: 2px solid #2f81f7; padding-left: 10px;">
                     <h4 style="margin: 0; color: var(--text-main);">Project: BlueTeam_Kit</h4>
                     <p style="font-size: 0.85rem; color: var(--text-muted); margin: 5px 0;">
-                        Custom Python toolkit for automating defensive operations, log analysis, and integrity checking.
+                        Lightweight forensic framework for rapid triage. Features <b>evtx_hunter</b> for detecting Windows persistence & log wiping, and <b>image_forensics</b> for finding malware hidden in metadata.
                     </p>
                     <a href="https://github.com/TechOunik/BlueTeam_Kit" target="_blank" style="color: var(--accent); font-size: 0.8rem;">View Source Code >></a>
                 </div>
+
                 <hr style="border: 0; border-top: 1px solid #30363d; margin: 20px 0;">
                 
                 <p style="text-align: center; color: var(--text-muted); font-style: italic; opacity: 0.7;">

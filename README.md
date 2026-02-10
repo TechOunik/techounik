@@ -2,7 +2,7 @@
   
 # 🛡️ Obioma Felicity Uzoh (TechOunik)
 
-### **Entry-Level Cybersecurity Analysts**
+### **Cybersecurity Analyst | Blue Team & GRC**
 
 </div>
 ---

@@ -2,7 +2,7 @@
   
 # 🛡️ Obioma Felicity Uzoh (TechOunik)
 
-### **Cybersecurity Analyst | Blue Team & GRC**
+### **SOC analyst | DFIR**
 
 </div>
 ---

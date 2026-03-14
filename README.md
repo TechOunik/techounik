@@ -2,10 +2,9 @@
   
 # 🛡️ Obioma Felicity Uzoh (TechOunik)
 
-### **Security Operations Center Analyst | CLUB CYBER ARCHITECT**
+### **SECURITY OPERATIONS CENTER ANALYST | CLUB CYBER ARCHITECT**
 
 </div>
----
 
 <div align="center">
 
@@ -24,14 +23,14 @@ Most people see logs; I see a story. My background as a School Teacher taught me
 Currently, I am finishing my B.Sc. in Cybersecurity at Miva Open University, focusing my research on Insider Threat Detection using Machine Learning. I don't just want to "break into" things, I want to understand the attacker's rhythm so I can build a better "house."
 
 What I bring to the Blue Team:
-Defensive Depth: Google Cybersecurity Professional, CWSE (Certified Web Security Expert).
-Attacker Mindset: CAPT (Certified Associate Penetration Tester) – I study the offense to perfect the defense.
-The #ClubCyber Edge: I lead a community initiative simplifying complex SOC concepts for the next generation of defenders.
+* **Defensive Depth:** Google Cybersecurity Professional, CWSE (Certified Web Security Expert).
+* **Attacker Mindset:** CAPT (Certified Associate Penetration Tester) – I study the offense to perfect the defense.
+* **The #ClubCyber Edge:** I lead a community initiative simplifying complex SOC concepts for the next generation of defenders.
 
 My Toolkit:
-👉 ​Defense: Network Traffic Analysis, Log Monitoring, Vulnerability Assessment.
-👉 ​Offense: Exploitation tools, Privilege Escalation, Web App Security.
-👉 ​General: Python Scripting, Linux, Reporting &amp; Documentation.
+* 👉 ​Defense: Network Traffic Analysis, Log Monitoring, Vulnerability Assessment.
+* 👉 ​Offense: Exploitation tools, Privilege Escalation, Web App Security.
+* 👉 ​General: Python Scripting, Linux, Reporting &amp; Documentation.
 
 I am ready to contribute to a forward-thinking security team. Let’s connect and secure the future together.
 

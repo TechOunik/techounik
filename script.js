@@ -1,7 +1,8 @@
 function cb(response) {
     const visitEl = document.getElementById('visits');
     if(visitEl) {
-        visitEl.innerText = response.value;
+       
+       visitEl.innerText = response.value || response.count || "Active";
     }
 }
 
@@ -15,143 +16,127 @@ document.addEventListener('DOMContentLoaded', () => {
         htmlElement.setAttribute('data-theme', savedTheme);
         themeSelector.value = savedTheme;
     } else {
-        themeSelector.value = 'cyber-blue';
-        htmlElement.setAttribute('data-theme', 'cyber-blue');
+       
+        themeSelector.value = 'easter-spring';
+        htmlElement.setAttribute('data-theme', 'easter-spring');
     }
 
     themeSelector.addEventListener('change', function() {
         const selectedTheme = this.value;
         htmlElement.setAttribute('data-theme', selectedTheme);
         localStorage.setItem('selectedTheme', selectedTheme);
+        updateParticleColor(selectedTheme);
     });
+
+    rotateKnowledgeTip();
 });
 
-const christmasEmojis = ['❄️', '🎄', '🎅', '🎁', '✨', '☃️', '🔔', '💃', '🕺'];
+const christmasEmojis = ['❄️', '🎄', '🎅', '🎁', '✨', '☃️', '🔔'];
+const easterEmojis = ['🥚', '🐣', '🐥', '🌷', '🌿', '🌱', '🦋', '🍬'];
 
 document.addEventListener('click', function(e) {
     const htmlElement = document.documentElement;
-    // Stop if we are not in Christmas mode
-    if (htmlElement.getAttribute('data-theme') !== 'christmas') return;
+    const currentTheme = htmlElement.getAttribute('data-theme');
+    
+    let emojiList = [];
+    if (currentTheme === 'christmas') emojiList = christmasEmojis;
+    else if (currentTheme === 'easter-spring') emojiList = easterEmojis;
+    else return; 
 
     const decoration = document.createElement('span');
     decoration.classList.add('click-decoration');
-    decoration.innerText = christmasEmojis[Math.floor(Math.random() * christmasEmojis.length)];
+    decoration.innerText = emojiList[Math.floor(Math.random() * emojiList.length)];
     decoration.style.left = (e.pageX - 10) + 'px';
     decoration.style.top = (e.pageY - 10) + 'px';
+    decoration.style.position = 'absolute';
+    decoration.style.zIndex = '9999';
+    decoration.style.pointerEvents = 'none';
+    
     document.body.appendChild(decoration);
     
     setTimeout(() => { decoration.remove(); }, 1500);
 });
 
-document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-});
+const techMessages = [
+    "Fact: 95% of cybersecurity breaches are caused by human error. Stay sharp!",
+    "Career Tip: Your GitHub is your digital resume. Commit code daily!",
+    "Fact: The first computer virus was created in 1971. It was called 'Creeper'.",
+    "Mindset: Resilience is the difference between a student and a pro. Keep building!",
+    "Pro-Tip: Use a password manager. 123456 is not a security plan!",
+    "Fact: White hat hackers are the immune system of the internet.",
+    "Advice: Don't just learn tools; learn the protocols behind them."
+];
+
+let currentMessageIndex = 0;
+
+function rotateKnowledgeTip() {
+    const tipEl = document.getElementById('knowledgeTip');
+    if(!tipEl) return;
+
+    // Change message when clicked
+    tipEl.style.cursor = "pointer";
+    tipEl.addEventListener('click', () => {
+        currentMessageIndex = (currentMessageIndex + 1) % techMessages.length;
+        tipEl.style.opacity = 0;
+        setTimeout(() => {
+            tipEl.innerText = techMessages[currentMessageIndex];
+            tipEl.style.opacity = 1;
+        }, 300);
+    });
+}
+
+document.addEventListener('contextmenu', e => e.preventDefault());
 
 document.onkeydown = function(e) {
-    if (event.keyCode == 123) { // F12
+    if (e.keyCode == 123 || 
+       (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) || 
+       (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
         return false;
     }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { 
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { 
-        return false;
-    }
-    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { 
-        return false;
+};
+
+function updateParticleColor(theme) {
+    let color = "#00ff88"; 
+    if (theme === 'easter-spring') color = "#165b33"; 
+    if (theme === 'christmas') color = "#d42426"; 
+    
+    if (window.pJSDom && window.pJSDom.length > 0) {
+        window.pJSDom[0].pJS.particles.color.value = color;
+        window.pJSDom[0].pJS.particles.line_linked.color = color;
+        window.pJSDom[0].pJS.fn.particlesRefresh();
     }
 }
 
 if (document.getElementById('particles-js')) {
     particlesJS("particles-js", {
         "particles": {
-            "number": {
-                "value": 50,
-                "density": {
-                    "enable": true,
-                    "value_area": 800
-                }
-            },
-            "color": {
-                "value": "#00ff88" 
-            },
-            "shape": {
-                "type": "circle",
-            },
-            "opacity": {
-                "value": 0.5,
-                "random": false,
-            },
-            "size": {
-                "value": 3,
-                "random": true,
-            },
-            "line_linked": {
-                "enable": true,
-                "distance": 150,
-                "color": "#00ff88",
-                "opacity": 0.4,
-                "width": 1
-            },
-            "move": {
-                "enable": true,
-                "speed": 2,
-                "direction": "none",
-                "random": false,
-                "straight": false,
-                "out_mode": "out",
-                "bounce": false,
-            }
+            "number": { "value": 40 },
+            "color": { "value": "#165b33" },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.5 },
+            "size": { "value": 3, "random": true },
+            "line_linked": { "enable": true, "distance": 150, "color": "#165b33", "opacity": 0.4, "width": 1 },
+            "move": { "enable": true, "speed": 2 }
         },
         "interactivity": {
-            "detect_on": "window", 
-            "events": {
-                "onhover": {
-                    "enable": true,
-                    "mode": "grab"
-                },
-                "onclick": {
-                    "enable": true,
-                    "mode": "push"
-                },
-                "resize": true
-            },
-            "modes": {
-                "grab": {
-                    "distance": 140,
-                    "line_linked": {
-                        "opacity": 1
-                    }
-                },
-                "push": {
-                    "particles_nb": 4
-                }
-            }
-        },
-        "retina_detect": false
+            "detect_on": "window",
+            "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } }
+        }
     });
 }
 
 function toggleMenu() {
-    const hamburger = document.querySelector(".hamburger");
-    const navMenu = document.querySelector("nav ul");
-
-    hamburger.classList.toggle("active");
-    navMenu.classList.toggle("active");
+    document.querySelector(".hamburger").classList.toggle("active");
+    document.querySelector("nav ul").classList.toggle("active");
 }
 
-document.querySelectorAll("nav a").forEach(n => n.addEventListener("click", () => {
-    document.querySelector(".hamburger").classList.remove("active");
-    document.querySelector("nav ul").classList.remove("active");
-}));
+console.log('%c🕵️ I SEE YOU LOOKING AT MY CODE...', 'color: #165b33; background: #fdf0d7; font-size: 20px; padding: 10px; border: 3px solid #165b33');
+console.log('%cHappy Easter! 🥚 I am a Blue Teamer. I see you first. 😉', 'color: #4a4a4a; font-size: 14px;');
 
-const styles = [
-    'color: #00ff88', 
-    'background: #0a192f', 
-    'font-size: 20px', 
-    'padding: 10px', 
-    'border: 3px solid #00ff88'
-].join(';');
 
-console.log('%c🕵️ I SEE YOU LOOKING AT MY CODE...', styles);
-console.log('%cIf you are looking for vulnerabilities, remember: I am a Blue Teamer. I see you first. 😉', 'color: #ccd6f6; font-size: 14px;');
+document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.querySelector(".hamburger").classList.remove("active");
+        document.querySelector("nav ul").classList.remove("active");
+    });
+});

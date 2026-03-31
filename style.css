@@ -53,6 +53,25 @@
     --font-main: 'Courier New', Courier, monospace;
     --btn-text: #000000;
 }
+    
+    [data-theme="easter-spring"] {
+    --bg-body: #fdf0d7;  
+    --bg-card: #ffffff;  
+    --text-main: #4a4a4a;
+    --text-muted: #6b7280; 
+    --accent: #165b33;   
+    --border: #c5ebd5;   
+    --btn-text: #ffffff;
+    --font-main: 'Segoe UI', sans-serif;
+}
+
+    [data-theme="easter-spring"] h1, 
+    [data-theme="easter-spring"] .section-title,
+    [data-theme="easter-spring"] h2 {
+    font-family: 'Inter', sans-serif !important;
+    text-transform: capitalize;
+}    
+    
 
 * { box-sizing: border-box; margin: 0; padding: 0; transition: background 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s; }
 

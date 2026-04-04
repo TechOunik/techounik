@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="easter-spring">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta property="og:title" content="Obioma Felicity Uzoh | #ClubCyber Defender">
+     <meta property="og:description" content="Check out my latest lab investigations and the #ClubCyber blueprint.">
+    <meta property="og:image" content="me.jpg"> 
+    <meta property="og:url" content="https://techounik.github.io/techounik/">
+
+    <title>Obioma Felicity Uzoh | Cybersecurity Portfolio</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <div id="particles-js"></div> 
+
+    <header>
+        <div class="logo">ØBIŠÜĐØ</div>
+        
+        <div class="hamburger" onclick="toggleMenu()">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#blog">Blog & Articles</a></li>
+                <li>
+                
+                   <select id="theme-selector">
+                   <option value="cyber-blue">🛡️ Blue Team</option>
+<option value="easter-spring" selected>🐣 Easter Spring (New!)</option>
+                        <option value="christmas">🎄 Christmas!</option>
+                        <option value="light">☀️ Light</option>
+                        <option value="dark">🌙 Dark</option>
+                        <option value="hacker">📟 Hacker</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+   <section class="hero" id="about" style="
+    background: linear-gradient(to bottom, var(--bg-main), var(--bg-card)), url('https://img.freepik.com/free-vector/abstract-technology-particle-background_52683-25766.jpg'); 
+    background-blend-mode: overlay;
+    background-size: cover; 
+    background-position: center; 
+    min-height: 90vh; 
+    display: flex; 
+    align-items: center;
+    position: relative;
+    padding-top: 80px;
+    border-bottom: none !important; 
+    margin-bottom: 0;">
+
+    <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; width: 100%;">
+        
+        <div class="hero-text" style="flex: 1; min-width: 300px; padding-right: 20px; z-index: 2;">
+            <p style="color: var(--accent); font-family: 'Courier New', monospace; font-size: 1.1rem; margin-bottom: 10px;">
+                Hi, my name is
+            </p>
+            
+            <h1 style="font-family: 'Orbitron', sans-serif; font-size: 3.5rem; color: var(--text-main); line-height: 1.1; margin-bottom: 10px; font-weight: 700;">
+                Obioma<br>Felicity Uzoh
+            </h1>
+            
+            <h2 style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; color: var(--accent); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">
+            Cybersecurity Analyst | Penetration Tester | Network Defender
+            </h2>
+
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; line-height: 1.6; margin-bottom: 30px;">
+                Performance-driven Cybersecurity Analyst with appreciable experience in Information Assurance, Security Operations, and Continuous Monitoring. <strong>Hackviser Student Ambassador</strong> with a dedicated focus on SOC workflows, Incident Response, and FISMA/NIST compliance frameworks. Proven ability to mitigate high-risk technical challenges, successfully managed 100% delivery of enterprise-level lab requirements during critical hardware failures by applying asset prioritization and risk management principles. Expert at translating complex Information Security policies into actionable technical training
+
+            </p>
+
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 30px;">
+                <a href="Obioma Felicity Uzoh CV.pdf" download class="btn" style="background: var(--accent); color: var(--bg-main); padding: 12px 25px; font-weight: bold; border-radius: 4px; text-decoration: none;">
+                    Download CV 📄
+                </a>
+                
+                <a href="#projects" class="btn" style="background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 12px 25px; font-weight: bold; border-radius: 4px; text-decoration: none;">
+                    View Projects
+                </a>
+            </div>
+
+            <div class="social-links" style="font-size: 1.5rem; display: flex; gap: 20px;">
+                <a href="https://www.linkedin.com/in/felicityuzoh" target="_blank" style="color: var(--text-main); transition: color 0.3s;"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/TechOunik" target="_blank" style="color: var(--text-main); transition: color 0.3s;"><i class="fab fa-github"></i></a>
+                <a href="https://medium.com/@obiomauzoh16" target="_blank" style="color: var(--text-main); transition: color 0.3s"><i class="fab fa-medium"></i></a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=obiomafelicityuzoh@gmail.com" target="_blank" style="color: var(--text-main); transition: color 0.3s;"><i class="fas fa-envelope"></i></a>
+                <a href="https://x.com/Obi_adiromma" target="_blank" style="color: var(--text-main); transition: color 0.3s;"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://discord.gg/qJH2F7H5bB" target="_blank" style="color: var(--text-main); transition: color 0.3s;"><i class="fab fa-discord"></i></a>
+            </div>
+        </div>
+
+        <div class="hero-image" style="flex: 1; display: flex; justify-content: center; min-width: 300px; margin-top: 30px;">
+            <div style="
+                width: 350px; 
+                height: 350px; 
+                border-radius: 50%; 
+                overflow: hidden; 
+                border: 4px solid var(--accent); 
+                box-shadow: 0 0 30px var(--accent), inset 0 0 20px var(--accent);
+                position: relative;
+                animation: pulse-glow 3s infinite alternate;">
+                
+                <img src="me.jpg" alt="Obioma Felicity Uzoh" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </div>
+
+    </div>
+</section>
+    
+  <section id="projects" class="container">
+    <h2 class="section-title">Technical Projects & Mentorship</h2>
+    
+    <div class="grid">
+        
+       
+        <div class="card">
+            <h3><i class="fas fa-shield-virus"></i> SecOps & Vulnerability Assessment</h3>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">Kali Linux</span>
+                <span class="tech-tag">Wireshark</span>
+                <span class="tech-tag">Metasploit</span>
+                <span class="tech-tag">Nmap</span>
+            </div>
+
+            <p><strong>The Strategy:</strong> Utilizing an offensive mindset to build stronger defenses by identifying and neutralizing attack vectors.</p>
+            <ul>
+                <li>Conducted penetration tests identifying 3+ critical privilege escalation paths.</li>
+                <li>Analyzed 500+ packet captures to detect anomalies and brute-force patterns.</li>
+                <li><strong>Impact:</strong> Hardened network integrity through combined traffic analysis and remediation reporting.</li>
+            </ul>
+            <div style="margin-top: auto;">
+                <a href="Hackviser-overview.pdf" target="_blank" class="btn" style="font-size: 0.8rem; padding: 8px 20px; width: 100%; text-align: center;">View Methodology 📄</a>
+            </div>
+        </div>
+
+       
+        <div class="card">
+            <h3><i class="fas fa-microscope"></i> Incident Response & Logging</h3>
+            
+            <div class="tech-stack">
+                <span class="tech-tag">SIEM</span>
+                <span class="tech-tag">Python Scripting</span>
+                <span class="tech-tag">SQL</span>
+            </div>
+
+            <p><strong>The Strategy:</strong> Building automated workflows to ensure rapid triage and 100% visibility into unauthorized access attempts.</p>
+            <ul>
+                <li>Wrote custom Python scripts to parse server logs and trigger real-time alerts.</li>
+                <li>Simulated security breaches in VMware to refine incident response playbooks.</li>
+                <li><strong>Impact:</strong> Significantly reduced detection times in lab environments through structured automation.</li>
+            </ul>
+        </div>
+
+        
+        <div class="card" style="border: 2px solid var(--accent); background: linear-gradient(rgba(0,255,136,0.05), transparent);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h3 style="color: var(--accent); margin-bottom: 0;"><i class="fas fa-chalkboard-teacher"></i> The Masterclass</h3>
+                <span style="font-size: 0.7rem; color: var(--accent); font-family: 'Orbitron'; letter-spacing: 1px;">MENTORSHIP</span>
+            </div>
+            
+            <p><strong>The World Within:</strong> I bridge the gap for absolute beginners, taking them from zero to knowledgeable defenders.</p>
+            
+            <ul style="border-top: 1px solid var(--border); padding-top: 15px;">
+                <li>Simplifying complex TCP/IP & SOC protocols.</li>
+                <li>Step-by-step blueprints for building your first home lab.</li>
+                <li><strong>#ClubCyber Goal:</strong> Turning curiosity into a career.</li>
+            </ul>
+
+            <div style="margin-top: auto;">
+                <a href="tutor.html" class="btn" style="width: 100%; text-align: center; background: var(--accent); color: var(--bg-body); font-weight: 800;">
+                    ENTER THE TUTOR WORLD <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+    </div> 
+</section>
+    
+       <section id="incident-logs" class="container">
+        <h2 class="section-title">
+            <span style="color: #cf222e; font-size: 0.8rem; vertical-align: middle;">⬤</span> 
+            Live Lab Investigations
+        </h2>
+        
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="terminal-dot red-dot"></span>
+                    <span class="terminal-dot yellow-dot"></span>
+                    <span class="terminal-dot green-dot"></span>
+                </div>
+                <div class="terminal-title">root@kali:~/investigations</div>
+            </div>
+            
+            <div class="terminal-body">
+                <p>
+                    <span class="cmd">➜  ~ cat sql_forensics_report.log</span><br>
+                    <span class="output">[INFO] Scanning MariaDB logs for anomalies...</span>
+                    <span class="output">[ALERT] Suspicious query detected: 'OR 1=1' from IP 192.168.1.105</span>
+                    <span class="output">[ACTION] Traffic isolated. Source: Non-standard country origin.</span>
+                </p>
+                <div style="margin: 15px 0; border-left: 2px solid var(--accent); padding-left: 10px;">
+                    <h4 style="margin: 0; color: var(--text-main);">Project: SQL Security Investigation</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 5px 0;">
+                        Conducted forensic analysis on login logs using complex SQL queries (AND, OR, LIKE) to filter suspicious activity.
+                    </p>
+                    <a href="https://github.com/TechOunik/SQL-Security-Investigations-Project" target="_blank" style="color: var(--accent); font-size: 0.8rem;">View Evidence on GitHub >></a>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid #30363d; margin: 20px 0;">
+
+                <p>
+                    <span class="cmd">➜  ~ ./analyze_malware.py --target=fake_authenticator</span><br>
+                    <span class="output">[CRITICAL] C2 Domain identified: 'g00gle-auth-update.com'</span>
+                    <span class="output">[INFO] Victim User: shutchenson</span>
+                    <span class="output">[STATUS] Report generated: MTA-2025-01-22</span>
+                </p>
+                 <div style="margin: 15px 0; border-left: 2px solid #cf222e; padding-left: 10px;">
+                    <h4 style="margin: 0; color: var(--text-main);">Project: Fake Google Authenticator Analysis</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 5px 0;">
+                        Traced spoofed domain & C2 exfiltration path.
+                    </p>
+                    <a href="https://github.com/TechOunik/Fake-Google-Malware-Analysis" target="_blank" style="color: var(--accent); font-size: 0.8rem;">View Malware Report >></a>
+                </div>
+                
+                  <hr style="border: 0; border-top: 1px solid #30363d; margin: 20px 0;">
+
+                <p>
+                    <span class="cmd">➜  ~ python3 evtx_hunter.py evidence.evtx</span><br>
+                    <span class="output">[INFO] Parsing Windows Event Log (Binary)...</span>
+                    <span class="output">[ALERT] Event 4720 Detected: New User 'backup_admin' created!</span>
+                    <span class="output">[WARN] Event 1102 Detected: Audit Logs were cleared.</span>
+                </p>
+                <div style="margin: 15px 0; border-left: 2px solid #2f81f7; padding-left: 10px;">
+                    <h4 style="margin: 0; color: var(--text-main);">Project: BlueTeam_Kit</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 5px 0;">
+                        Lightweight forensic framework for rapid triage. Features <b>evtx_hunter</b> for detecting Windows persistence & log wiping, and <b>image_forensics</b> for finding malware hidden in metadata.
+                    </p>
+                    <a href="https://github.com/TechOunik/BlueTeam_Kit" target="_blank" style="color: var(--accent); font-size: 0.8rem;">View Source Code >></a>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid #30363d; margin: 20px 0;">
+                
+                <p style="text-align: center; color: var(--text-muted); font-style: italic; opacity: 0.7;">
+                    <span class="cmd">... // More incidents coming soon ...</span>
+                </p>
+                
+        </div>
+    </section>
+
+    <section id="skills" class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Security Assessment</h3>
+                <p>Penetration Testing, Vulnerability Scanning, Threat Analysis, OWASP Top 10, Risk Assessment, Security Reporting.</p>
+            </div>
+            <div class="card">
+                <h3>Network Security</h3>
+                <p>TCP/IP, Wireshark (Packet Analysis), Intrusion Detection, Cryptography, Identity & Access Management (IAM).</p>
+            </div>
+            <div class="card">
+                <h3>Tools & OS</h3>
+                <p>Kali Linux, Metasploit, Nmap, Burp Suite, VMware, Command-Line Interfaces (CLI).</p>
+            </div>
+            <div class="card">
+                <h3>Programming</h3>
+                <p>Python (Intermediate), Bash Scripting (Automation).</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="container">
+        <h2 class="section-title">Education & Certifications</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>🎓 Education</h3>
+                <p><strong>B.Sc. in Cybersecurity</strong><br>Miva Open University, Abuja<br><em>Expected May 2026</em></p>
+                <p>Relevant Coursework: Network Security, Penetration Testing, Digital Forensics, Intrusion Detection, Security Governance.</p>
+            </div>
+            <div class="card">
+                <h3>📜 Certifications</h3>
+                <ul>
+                    <li><strong>CAPT (Certified Associate Penetration Tester)</strong> - Hackviser (Nov 2025)</li>
+                    <li><strong>Google Cybersecurity Professional</strong> - Coursera (Nov 2025)</li>
+                    <li><strong>CWSE (Certified Web Security Expert)</strong> - Hackviser (Dec 2025)</li>
+                    <li><strong>Introduction to Cybersecurity</strong> - Cisco (Jan 2026)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>🤝 Leadership</h3>
+                <p><strong>Hackviser Student Ambassador</strong><br><em>October 2025 – Present</em></p>
+                <ul>
+                    <li>Facilitate peer learning on complex topics like Privilege Escalation.</li>
+                    <li>Organize study groups and provide platform feedback.</li>
+                    <li>Promote ethical hacking best practices.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+      <section id="blog" class="container" style="padding: 60px 20px; margin-bottom: 40px;">
+    
+    <h2 class="section-title" style="margin-bottom: 40px; display: flex; align-items: center; gap: 10px;">
+        <i class="fas fa-pen-nib" style="color: var(--accent);"></i> 
+        <span style="color: var(--text-main);">Blog<span style="color: var(--accent);">& Articles</span></span>
+    </h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+
+        <article style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 30px; position: relative; overflow: hidden;">
+            
+            <div style="color: var(--accent); font-size: 2.5rem; margin-bottom: 20px;">
+                <i class="fab fa-medium"></i>
+            </div>
+
+            <h3 style="color: var(--text-main); margin-bottom: 15px; font-size: 1.5rem;">
+                Obioma's Blog
+            </h3>
+
+            <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 25px;">
+                I document my cybersecurity journey, home lab tutorials, and career insights. Follow me on Medium to see how I build.
+            </p>
+
+            <a href="https://medium.com/@obiomauzoh16" target="_blank" class="btn" style="background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 5px; display: inline-block; transition: all 0.3s;">
+                VISIT MY MEDIUM <i class="fas fa-external-link-alt" style="margin-left: 5px;"></i>
+            </a>
+
+        </article>
+              
+    </div>
+</section>
+    <section id="book-promo" class="container" style="margin-top: 50px; margin-bottom: 50px;">
+    <div class="book-card">
+        <div class="book-info">
+            <h2>THE BLUEPRINT I WISH I HAD</h2>
+            <p>No templates. Just code and strategy.</p>
+            <a href="https://forms.gle/uKL493GkpdkZBBBZ6" target="_blank" class="cta-btn">
+                <i class="fas fa-book-open"></i> JOIN THE WAITLIST
+            </a>
+        </div>
+        <div class="book-visual">
+            <img src="book-mockup.png" alt="The Cybersecurity Portfolio Guide">
+        </div>
+    </div>
+</section>
+    
+     <div class="wisdom-bar">
+    <i class="fas fa-lightbulb" style="color: var(--accent); margin-right: 10px;"></i>
+    <span id="knowledgeTip">Welcome to #ClubCyber! Click me for a secret tip...</span>
+</div>
+
+    <footer>
+        <p>&copy; 2026 Obioma Felicity Uzoh. All Rights Reserved.</p>
+        
+        <div style="margin-top: 15px; font-size: 0.9rem; color: var(--text-muted);">
+            <i class="fas fa-chart-line"></i> 
+            Portfolio Views: <span id="visits" style="font-weight: bold; color: var(--accent);">...</span>
+        </div>
+        
+        <script async src="https://api.counterapi.dev/v1/techounik/portfolio/up?callback=cb"></script>
+    </footer>
+    
+    <script src="script.js"></script>
+<a href="https://forms.gle/uKL493GkpdkZBBBZ6" target="_blank" class="floating-book-btn" id="floatingBookBtn">
+    <i class="fas fa-book-open"></i> 
+    <span class="btn-text">JOIN WAITLIST</span> 
+    <span class="badge">NEW</span>
+</a>
+</body>
+</html>

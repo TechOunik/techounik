@@ -583,3 +583,392 @@ footer { text-align: center; padding: 30px; background-color: var(--bg-card); co
         font-size: 1.5rem;
     }
 }
+
+.tutor-page {
+    background-image: 
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+.back-to-soc {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    border-radius: 30px;
+    font-family: 'Orbitron';
+    font-size: 0.8rem;
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+.back-to-soc:hover {
+    background: var(--accent);
+    color: var(--bg-body);
+}
+
+.roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.roadmap-card {
+    position: relative;
+    padding-top: 50px !important;
+    border-top: 4px solid var(--accent) !important;
+}
+
+.step-num {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: var(--bg-body);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: 'Orbitron';
+}
+
+.tutor-features {
+    list-style: none;
+    text-align: left;
+}
+
+.tutor-features li {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+/*  SECTION: THE CLUB CYBER LEARNING HUB (ACADEMY) */
+
+/* 1. Grid Layout: */
+.grid-10 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 40px 0;
+}
+
+/* 2. Universal Course Link */
+.course-link {
+    text-decoration: none !important;
+    color: inherit !important;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* 3. The "Cyber Locker" Course Card */
+.course-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.course-link:hover .course-card {
+    border-color: var(--accent);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.course-link:active .course-card {
+    transform: scale(0.97);
+    background: var(--border);
+}
+
+/* 4. Badge System (Left = Status, Right = Availability) */
+.badge {
+    position: absolute;
+    top: 15px;
+    padding: 4px 12px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.65rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    z-index: 10;
+    text-transform: uppercase;
+}
+
+/* Status Badges (Left) */
+.badge.free { 
+    left: 15px; 
+    background: #165b33; /* Solid Green Box */
+    color: #ffffff; 
+}
+
+.badge.paid { 
+    left: 15px; 
+    background: #cf222e; /* Solid Red Box */
+    color: #ffffff; 
+}
+
+/* Availability Badge (Right) */
+.badge.coming-soon { 
+    right: 15px; 
+    background: #e6b800; /* Solid Yellow Box */
+    color: #000000; 
+    border: 1px solid #000;
+}
+
+/* 5. Placeholder Image Area with CLUB CYBER Watermark */
+.course-image-area {
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(135deg, var(--bg-body), var(--border));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+}
+
+.course-image-area::after {
+    content: "CLUB CYBER";
+    font-family: 'Orbitron', sans-serif;
+    color: rgba(255, 255, 255, 0.05);
+    font-size: 1.5rem;
+    position: absolute;
+}
+
+.course-icon-main {
+    font-size: 3.5rem;
+    color: var(--accent);
+    opacity: 0.25;
+}
+
+/* 6. Course Content Area */
+.course-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-content h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+}
+
+.course-content p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* 7. Action Button: START MODULE */
+.course-cta {
+    margin-top: auto; 
+    padding: 12px;
+    background: rgba(22, 91, 51, 0.05);
+    border: 1px dashed var(--accent);
+    color: var(--accent);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.course-link:hover .course-cta {
+    background: var(--accent);
+    color: var(--bg-body);
+    border-style: solid;
+    box-shadow: 0 0 15px var(--accent);
+}
+
+/* 8. 5-Star Review System */
+.review-stars {
+    color: #e6b800;
+    font-size: 0.8rem;
+    padding-top: 15px;
+    margin-top: 15px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 2px;
+}
+
+/* 9. Global Academy Navigation (Exit Button) */
+.tutor-page .back-to-soc {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 9999;
+    background: var(--accent);
+    color: var(--bg-body);
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    font-size: 0.75rem;
+    text-decoration: none;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.tutor-page .back-to-soc:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* 10. Typography Polish */
+.tutor-page h1 span {
+    text-shadow: 0 0 20px var(--accent);
+}
+
+.tutor-features i {
+    color: var(--accent);
+    margin-right: 10px;
+}
+
+/* ================== THE GATEWAY (INDEX) STYLES ================== */
+
+.gateway-body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-image: radial-gradient(var(--accent) 0.5px, transparent 0.5px);
+    background-size: 30px 30px;
+}
+
+.vault-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.vault-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    padding: 50px 40px;
+    border-radius: 50px;
+    text-align: center;
+    max-width: 450px;
+    width: 100%;
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.1), -20px -20px 60px rgba(255,255,255,0.5);
+    animation: emerge 1s ease-out;
+}
+
+.bio-wrapper {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 30px;
+}
+
+.bio-ring {
+    position: absolute;
+    top: -10px; left: -10px; right: -10px; bottom: -10px;
+    border: 2px solid transparent;
+    border-top: 2px solid var(--accent);
+    border-radius: 50%;
+    animation: spin 3s linear infinite;
+}
+
+.laser-scanner {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 15px var(--accent);
+    animation: scan 2s ease-in-out infinite;
+    z-index: 5;
+}
+
+.photo-container {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--bg-card);
+}
+
+.photo-container img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Gateway Typography */
+.easter-badge {
+    background: var(--accent);
+    color: var(--btn-text);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-family: 'Orbitron';
+    font-size: 0.6rem;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.role-text {
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.initialize-btn {
+    background: var(--accent);
+    color: var(--btn-text);
+    padding: 18px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Orbitron';
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.initialize-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--accent);
+}
+
+/* Animations */
+@keyframes scan { 0%, 100% { top: 0%; } 50% { top: 100%; } }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+@keyframes emerge { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Floating Icons for Background */
+.floating-icon {
+    position: absolute;
+    color: var(--accent);
+    opacity: 0.1;
+    animation: float 8s infinite ease-in-out;
+}
+
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }

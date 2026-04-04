@@ -1,7 +1,7 @@
+// 1. Visitor Counter Callback
 function cb(response) {
     const visitEl = document.getElementById('visits');
     if(visitEl) {
-       
        visitEl.innerText = response.value || response.count || "Active";
     }
 }
@@ -10,27 +10,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeSelector = document.getElementById('theme-selector');
     const htmlElement = document.documentElement;
 
+    
     const savedTheme = localStorage.getItem('selectedTheme');
     
     if (savedTheme) {
         htmlElement.setAttribute('data-theme', savedTheme);
-        themeSelector.value = savedTheme;
+        if(themeSelector) themeSelector.value = savedTheme;
     } else {
        
-        themeSelector.value = 'easter-spring';
-        htmlElement.setAttribute('data-theme', 'easter-spring');
+        const defaultTheme = 'easter-spring';
+        htmlElement.setAttribute('data-theme', defaultTheme);
+        if(themeSelector) themeSelector.value = defaultTheme;
     }
 
-    themeSelector.addEventListener('change', function() {
-        const selectedTheme = this.value;
-        htmlElement.setAttribute('data-theme', selectedTheme);
-        localStorage.setItem('selectedTheme', selectedTheme);
-        updateParticleColor(selectedTheme);
-    });
+    if(themeSelector) {
+        themeSelector.addEventListener('change', function() {
+            const selectedTheme = this.value;
+            htmlElement.setAttribute('data-theme', selectedTheme);
+            localStorage.setItem('selectedTheme', selectedTheme);
+            updateParticleColor(selectedTheme);
+        });
+    }
+
 
     rotateKnowledgeTip();
+
+ 
+    const hamburger = document.querySelector(".hamburger");
+    if (hamburger) {
+        hamburger.addEventListener("click", toggleMenu);
+    }
 });
 
+// 2. Click Decorations (Easter & Christmas)
 const christmasEmojis = ['❄️', '🎄', '🎅', '🎁', '✨', '☃️', '🔔'];
 const easterEmojis = ['🥚', '🐣', '🐥', '🌷', '🌿', '🌱', '🦋', '🍬'];
 
@@ -53,10 +65,10 @@ document.addEventListener('click', function(e) {
     decoration.style.pointerEvents = 'none';
     
     document.body.appendChild(decoration);
-    
     setTimeout(() => { decoration.remove(); }, 1500);
 });
 
+// 3. Wisdom Bar Logic
 const techMessages = [
     "Fact: 95% of cybersecurity breaches are caused by human error. Stay sharp!",
     "Career Tip: Your GitHub is your digital resume. Commit code daily!",
@@ -73,7 +85,6 @@ function rotateKnowledgeTip() {
     const tipEl = document.getElementById('knowledgeTip');
     if(!tipEl) return;
 
-    // Change message when clicked
     tipEl.style.cursor = "pointer";
     tipEl.addEventListener('click', () => {
         currentMessageIndex = (currentMessageIndex + 1) % techMessages.length;
@@ -85,6 +96,7 @@ function rotateKnowledgeTip() {
     });
 }
 
+// 4. Security Lockdown (Blue Team Style)
 document.addEventListener('contextmenu', e => e.preventDefault());
 
 document.onkeydown = function(e) {
@@ -95,6 +107,7 @@ document.onkeydown = function(e) {
     }
 };
 
+// 5. Particles Engine
 function updateParticleColor(theme) {
     let color = "#00ff88"; 
     if (theme === 'easter-spring') color = "#165b33"; 
@@ -125,14 +138,11 @@ if (document.getElementById('particles-js')) {
     });
 }
 
+// 6. Navigation Logic
 function toggleMenu() {
     document.querySelector(".hamburger").classList.toggle("active");
     document.querySelector("nav ul").classList.toggle("active");
 }
-
-console.log('%c🕵️ I SEE YOU LOOKING AT MY CODE...', 'color: #165b33; background: #fdf0d7; font-size: 20px; padding: 10px; border: 3px solid #165b33');
-console.log('%cHappy Easter! 🥚 I am a Blue Teamer. I see you first. 😉', 'color: #4a4a4a; font-size: 14px;');
-
 
 document.querySelectorAll("nav a").forEach(link => {
     link.addEventListener("click", () => {
@@ -140,3 +150,5 @@ document.querySelectorAll("nav a").forEach(link => {
         document.querySelector("nav ul").classList.remove("active");
     });
 });
+
+console.log('%c🕵️ I SEE YOU LOOKING AT MY CODE...', 'color: #165b33; background: #fdf0d7; font-size: 20px; padding: 10px; border: 3px solid #165b33');

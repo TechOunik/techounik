@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="easter-spring">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Construction | #ClubCyber Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            background-image: radial-gradient(var(--border) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        .soon-container {
+            background: var(--bg-card);
+            padding: 60px;
+            border-radius: 30px;
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 50px rgba(0,255,136,0.1);
+            max-width: 600px;
+        }
+        .loader {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+    <div class="soon-container">
+        <i class="fas fa-spinner loader"></i>
+        <h1 style="font-family: 'Orbitron'; color: var(--accent); margin-bottom: 20px;">ENCRYPTION IN PROGRESS</h1>
+        <p style="color: var(--text-main); font-size: 1.2rem; margin-bottom: 30px;">
+            The <strong>#ClubCyber</strong> learning modules are currently being finalized. We are securing the curriculum to ensure you get the best Zero-to-Knowledgeable experience.
+        </p>
+        
+        <div style="background: var(--bg-body); padding: 20px; border-radius: 15px; margin-bottom: 30px; border: 1px dashed var(--accent);">
+            <p style="font-family: 'Courier New', monospace; font-size: 0.9rem; color: var(--accent);">
+                [STATUS]: Deploying Lab Environments... 85% Complete
+            </p>
+        </div>
+
+        <a href="tutor.html" class="btn" style="background: transparent; border: 1px solid var(--text-muted); color: var(--text-muted);">
+            <i class="fas fa-arrow-left"></i> Go Back
+        </a>
+    </div>
+
+</body>
+</html>

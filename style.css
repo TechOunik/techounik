@@ -1032,3 +1032,62 @@ footer { text-align: center; padding: 30px; background-color: var(--bg-card); co
     }
 }
 
+@media screen and (max-width: 768px) {
+    /* 1. Force the Hamburger to be visible against the cream background */
+    .hamburger {
+        display: block !important;
+        position: relative;
+        z-index: 1002;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .bar {
+        background-color: var(--accent) !important; /* Force Green Bars */
+        width: 30px;
+        height: 3px;
+        margin: 6px 0;
+        display: block;
+        transition: 0.3s;
+    }
+
+    /* 2. Fix the Nav Menu positioning and visibility */
+    nav ul {
+        position: fixed !important;
+        left: -100% !important; /* Start off-screen */
+        top: 0 !important;
+        flex-direction: column !important;
+        background-color: var(--bg-card) !important; /* Solid background */
+        width: 80% !important; /* Don't cover the whole screen */
+        height: 100vh !important;
+        padding: 100px 20px !important;
+        transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) !important;
+        box-shadow: 10px 0 30px rgba(0,0,0,0.2) !important;
+        z-index: 1001 !important;
+        display: flex !important;
+    }
+
+    nav ul.active {
+        left: 0 !important; /* Slide in when active */
+    }
+
+    /* 3. Make sure the Theme Selector is large enough for thumbs */
+    nav ul li {
+        margin: 20px 0 !important;
+        width: 100%;
+        text-align: left;
+    }
+
+    #theme-selector {
+        width: 100% !important;
+        padding: 12px !important;
+        font-size: 1rem !important;
+    }
+
+    nav a {
+        font-size: 1.1rem !important;
+        display: block;
+        width: 100%;
+    }
+}
+

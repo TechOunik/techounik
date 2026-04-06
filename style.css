@@ -910,7 +910,17 @@ footer { text-align: center; padding: 30px; background-color: var(--bg-card); co
 
  
 @media screen and (max-width: 768px) {
-    
+
+    .hero {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .profile-wrapper, .hero-image {
+        order: -1 !important; 
+        margin-bottom: 20px !important;
+    }
+
     header {
         flex-direction: row !important; 
         justify-content: space-between !important;

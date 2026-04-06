@@ -7,40 +7,40 @@ function cb(response) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    
     const themeSelector = document.getElementById('theme-selector');
     const htmlElement = document.documentElement;
-
+    const savedTheme = localStorage.getItem('selectedTheme') || 'easter-spring';
     
-    const savedTheme = localStorage.getItem('selectedTheme');
-    
-    if (savedTheme) {
-        htmlElement.setAttribute('data-theme', savedTheme);
-        if(themeSelector) themeSelector.value = savedTheme;
-    } else {
-       
-        const defaultTheme = 'easter-spring';
-        htmlElement.setAttribute('data-theme', defaultTheme);
-        if(themeSelector) themeSelector.value = defaultTheme;
-    }
+    htmlElement.setAttribute('data-theme', savedTheme);
+    if(themeSelector) themeSelector.value = savedTheme;
 
     if(themeSelector) {
         themeSelector.addEventListener('change', function() {
             const selectedTheme = this.value;
             htmlElement.setAttribute('data-theme', selectedTheme);
             localStorage.setItem('selectedTheme', selectedTheme);
-            updateParticleColor(selectedTheme);
         });
     }
 
-
-    rotateKnowledgeTip();
-
- 
     const hamburger = document.querySelector(".hamburger");
-    if (hamburger) {
-        hamburger.addEventListener("click", toggleMenu);
+    const navMenu = document.querySelector("nav ul");
+
+    if (hamburger && navMenu) {
+        
+        window.toggleMenu = function() {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        };
+
+        
+          document.querySelectorAll("nav a").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
     }
 });
+
 
 // 2. Click Decorations (Easter & Christmas)
 const christmasEmojis = ['❄️', '🎄', '🎅', '🎁', '✨', '☃️', '🔔'];
